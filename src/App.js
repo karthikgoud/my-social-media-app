@@ -1,10 +1,10 @@
 import "./App.css";
+import Landing from "./pages/Landing/Landing";
 
 function App() {
   return (
     <div className="App">
-      Social Media
-      <div>Components Here</div>
+      <Landing />
     </div>
   );
 }
