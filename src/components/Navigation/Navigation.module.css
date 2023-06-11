@@ -1,0 +1,75 @@
+.navCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+  padding: 1rem 1rem;
+}
+
+.iconCont {
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.iconCont a {
+  text-decoration: none;
+  color: black;
+}
+.iconCont a span {
+  padding-left: 0.4rem;
+}
+
+.navBtn {
+  background-color: red;
+  border: none;
+  width: 12rem;
+  padding: 1rem 1rem;
+  color: white;
+  margin-top: 1rem;
+}
+
+.navBtn:hover {
+  cursor: pointer;
+}
+
+/* bottom cont */
+
+.bottomCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.userCont {
+  display: flex;
+}
+
+.cirImg {
+  background-color: gray;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.userDetails {
+  margin-left: 0.6rem;
+}
+
+.userDetails div:first-child {
+  font-weight: 700;
+}
+
+.userDetails div:nth-child(2) {
+  color: #9f9aa6;
+}
+
+.dots {
+  color: #9f9aa6;
+  font-weight: bold;
+}
+
+.active {
+  color: red;
+}

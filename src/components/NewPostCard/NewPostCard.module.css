@@ -1,0 +1,55 @@
+.newpost {
+  margin-top: 1rem;
+  margin-right: 4rem;
+  padding: 0.5rem;
+  background-color: #fff;
+}
+
+.img {
+  background-color: gray;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+
+.textCont {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  width: 90%;
+}
+
+.textCont textarea {
+  background-color: #f7f7f7;
+  border: none;
+  width: 100%;
+  padding: 0.5rem;
+  resize: none;
+}
+
+.postCont {
+  display: flex;
+}
+
+.iconsCont {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postIcons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.iconsCont button {
+  border: none;
+  padding: 0.5rem 2rem;
+  background-color: #ff3b30;
+  color: #fff;
+}
+
+.iconsCont button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+.searchCont {
+  display: flex;
+  align-items: center;
+  outline: 1px solid rgb(224, 220, 220);
+  padding: 0 1rem;
+  background-color: #fff;
+}
+
+.searchIcon {
+  font-size: 1.1rem;
+}
+
+.searchCont input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+}
+
+.searchCont input:focus {
+  outline: none;
+}
