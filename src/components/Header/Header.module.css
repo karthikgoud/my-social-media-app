@@ -1,0 +1,15 @@
+.headerCont div {
+  padding: 1rem;
+  font-size: 1.6rem;
+  width: 90%;
+  margin: 0 auto;
+  height: 64px;
+}
+
+/* .headerCont:first-of-type span {
+  color: red;
+} */
+
+.headerCont img {
+  width: 100px;
+}

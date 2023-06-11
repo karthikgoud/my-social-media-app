@@ -1,0 +1,17 @@
+.container {
+  margin-top: 1rem;
+  background-color: #fff;
+}
+
+.whoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid gray;
+}
+
+.red {
+  font-weight: 700;
+  color: red;
+}
