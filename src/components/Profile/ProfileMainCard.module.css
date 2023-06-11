@@ -1,0 +1,53 @@
+.profileCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.profileCont button {
+  padding: 0.4rem 0.8rem;
+  background-color: #f7f7f7;
+  border: none;
+  font-weight: 600;
+  outline: 1px solid gray;
+  margin: 1rem 0;
+}
+.username {
+  color: rgb(175, 170, 170);
+}
+
+.profileCont p {
+  margin: 0 1rem;
+}
+
+.website {
+  margin: 1rem 0;
+  color: red;
+}
+
+.userInfo {
+  background-color: white;
+  /* width: 50%; */
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  gap: 2.5rem;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

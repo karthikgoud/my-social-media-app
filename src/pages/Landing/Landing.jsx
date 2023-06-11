@@ -2,8 +2,6 @@ import styles from "./Landing.module.css";
 
 import landing from "../../assets/images/landing-img1.png";
 
-console.log(styles);
-
 const Landing = () => {
   return (
     <div className={styles.container}>
