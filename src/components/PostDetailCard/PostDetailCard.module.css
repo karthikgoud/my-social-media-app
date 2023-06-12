@@ -1,0 +1,66 @@
+.container {
+  width: 100vmin;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+}
+.postHead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  font-size: 1.6rem;
+}
+
+.postHead div {
+  font-weight: 700;
+}
+
+.userCont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userImageCont {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.userimage {
+  background-color: gray;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.userName {
+  font-size: 1.3rem;
+}
+
+.postPara {
+  font-size: 1.2rem;
+  padding-top: 1rem;
+}
+.timeCont {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: gray;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.likes {
+  padding: 1rem 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+  font-size: 1.2rem;
+}

@@ -5,7 +5,7 @@ import styles from "./Bookmark.module.css";
 const Bookmark = () => {
   return (
     <HomeLayout>
-      <h2>Your Bookmarks</h2>
+      <h2 className={styles.bookmarkHeading}>Your Bookmarks</h2>
       <PostCard />
       <PostCard />
     </HomeLayout>
