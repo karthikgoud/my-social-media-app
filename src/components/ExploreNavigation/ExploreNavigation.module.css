@@ -1,0 +1,28 @@
+.container {
+  width: max-content;
+}
+
+.btnCont {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  background-color: #f7f7f7;
+  border: none;
+  outline: 1px solid #b2aa9f;
+  color: #b2aa9f;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.active {
+  color: black;
+  font-weight: 6 00;
+}
