@@ -1,0 +1,9 @@
+.followingBtn {
+  width: 30%;
+  padding: 0.4rem 0.8rem;
+  background-color: #f7f7f7;
+  border: none;
+  font-weight: 600;
+  outline: 1px solid gray;
+  margin: 1rem 0;
+}

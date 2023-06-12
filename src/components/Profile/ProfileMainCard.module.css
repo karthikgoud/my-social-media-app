@@ -13,14 +13,6 @@
   background-color: gray;
 }
 
-.profileCont button {
-  padding: 0.4rem 0.8rem;
-  background-color: #f7f7f7;
-  border: none;
-  font-weight: 600;
-  outline: 1px solid gray;
-  margin: 1rem 0;
-}
 .username {
   color: rgb(175, 170, 170);
 }
