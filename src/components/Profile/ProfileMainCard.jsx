@@ -1,12 +1,12 @@
 import styles from "./ProfileMainCard.module.css";
 
-const ProfileMainCard = () => {
+const ProfileMainCard = ({ children }) => {
   return (
     <div className={styles.profileCont}>
       <div className={styles.profileImage}></div>
       <h2>Tanay Pratap</h2>
       <div className={styles.username}>@tanaypratap</div>
-      <button>Edit Profile</button>
+      {children}
       <p>
         Senior Software Engineer @Microsoft | Creator of India’s biggest
         programming community | Tweets about JavaScript, ReactJS, Career and
