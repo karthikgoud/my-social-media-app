@@ -14,6 +14,8 @@ const dataReducer = (state, action) => {
   switch (action.type) {
     case "SET_POSTS_DATA":
       return { ...state, postsData: [...action.payload] };
+    case "SET_USER_DATA":
+      return { ...state, userData: { ...action.payload } };
     default:
       return state;
   }

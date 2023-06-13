@@ -28,7 +28,7 @@ const authReducer = (state, action) => {
 export const AuthProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducer, initialState);
 
-  const { getUserPost } = useData();
+  const { getUserPost, dataDispatch } = useData();
 
   // get Login from users.js ,if user present
 
@@ -50,6 +50,8 @@ export const AuthProvider = ({ children }) => {
 
       localStorage.setItem("currentUser", JSON.stringify(foundUser));
       authDispatch({ type: "SET_CURRENTUSER", payload: foundUser });
+
+      dataDispatch({ type: "SET_USER_DATA", payload: foundUser });
 
       getUserPost(foundUser);
     } catch (e) {

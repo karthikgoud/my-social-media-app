@@ -4,8 +4,12 @@ import { BsRocket } from "react-icons/bs";
 import { BsBookmark } from "react-icons/bs";
 import { BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
+import { useData } from "../../context/DataContext";
 
 const Navigation = () => {
+  const {
+    data: { userData },
+  } = useData();
   return (
     <div className={styles.navCont}>
       <div className={styles.topCont}>
@@ -68,8 +72,8 @@ const Navigation = () => {
         <div className={styles.userCont}>
           <div className={styles.cirImg}></div>
           <div className={styles.userDetails}>
-            <div>Tanay Pratap</div>
-            <div>@tanaypratap</div>
+            <div>{`${userData.firstName} ${userData.lastName}`}</div>
+            <div>@{userData.username}</div>
           </div>
         </div>
         <div className={styles.dots}>...</div>
