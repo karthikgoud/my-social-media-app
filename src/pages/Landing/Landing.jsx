@@ -1,6 +1,7 @@
 import styles from "./Landing.module.css";
 
 import landing from "../../assets/images/landing-img1.png";
+import { NavLink } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -30,8 +31,12 @@ const Landing = () => {
           </div>
         </div>
         <div className={styles.joinCont}>
-          <button>Join Now</button>
-          <p>Already have an Account?</p>
+          <NavLink to="/login" className={styles.button}>
+            Login
+          </NavLink>
+          <NavLink to="/signup" className={styles.loginLink}>
+            New member? Create an account
+          </NavLink>
         </div>
       </div>
       <div className={styles.imgCont}>

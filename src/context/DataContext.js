@@ -22,13 +22,11 @@ const dataReducer = (state, action) => {
 export const DataProvider = ({ children }) => {
   const [data, dataDispatch] = useReducer(dataReducer, initialState);
 
-  // get user
-
   // get user post
 
-  const getUserPost = async () => {
+  const getUserPost = async (user) => {
     try {
-      const res = await fetch("/api/posts");
+      const res = await fetch(`/api/posts/user/${user?.username}`);
       const { posts } = await res.json();
       dataDispatch({ type: "SET_POSTS_DATA", payload: posts });
     } catch (e) {
@@ -36,23 +34,13 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  //   const checkAPi = async () => {
-  //     try {
-  //       const res = await fetch(`/api/posts/user/${"shubhamsoni"}`);
-  //       const data = await res.json();
-  //       console.log(data);
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   };
-
   useEffect(() => {
     getUserPost();
     // checkAPi();
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, dataDispatch }}>
+    <DataContext.Provider value={{ data, dataDispatch, getUserPost }}>
       {children}
     </DataContext.Provider>
   );
