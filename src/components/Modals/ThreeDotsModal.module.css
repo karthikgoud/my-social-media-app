@@ -1,0 +1,13 @@
+.btn {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: var(--bg-dark-1);
+  color: var(--color-off-gray);
+}
+.btn:hover {
+  color: var(--color-white);
+  cursor: pointer;
+}

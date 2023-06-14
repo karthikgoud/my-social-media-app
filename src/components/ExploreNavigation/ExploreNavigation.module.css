@@ -1,5 +1,6 @@
 .container {
   width: max-content;
+  color: var(--color-white);
 }
 
 .btnCont {
@@ -11,10 +12,12 @@
 
 .btn {
   padding: 0.5rem 1.5rem;
-  background-color: #f7f7f7;
+  background-color: var(--bg-dark-2);
+
   border: none;
-  outline: 1px solid #b2aa9f;
-  color: #b2aa9f;
+  outline: 1px solid var(--bg-dark-1);
+  color: var(--color-white);
+
   font-size: 1rem;
 }
 
@@ -23,6 +26,6 @@
 }
 
 .active {
-  color: black;
+  color: var(--color-active-red);
   font-weight: 6 00;
 }

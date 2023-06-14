@@ -52,8 +52,6 @@ export const AuthProvider = ({ children }) => {
       authDispatch({ type: "SET_CURRENTUSER", payload: foundUser });
 
       dataDispatch({ type: "SET_USER_DATA", payload: foundUser });
-
-      getUserPost(foundUser);
     } catch (e) {
       console.log(e);
     }

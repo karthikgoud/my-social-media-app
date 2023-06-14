@@ -2,7 +2,8 @@
   margin-top: 1rem;
   margin-right: 4rem;
   padding: 0.5rem;
-  background-color: #fff;
+  color: #fff;
+  background-color: var(--bg-dark-2);
 }
 
 .img {
@@ -20,11 +21,21 @@
 }
 
 .textCont textarea {
-  background-color: #f7f7f7;
+  background-color: #d4e6f1;
+  color: var(--text-color-dark);
   border: none;
   width: 100%;
   padding: 0.5rem;
   resize: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.textCont textarea::placeholder {
+  color: var(--text-color-dark);
+}
+.textCont textarea:focus {
+  outline: none;
 }
 
 .postCont {
@@ -46,7 +57,8 @@
 .iconsCont button {
   border: none;
   padding: 0.5rem 2rem;
-  background-color: #ff3b30;
+  background-color: var(--color-btn-red);
+
   color: #fff;
 }
 

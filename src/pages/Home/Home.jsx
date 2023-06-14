@@ -6,15 +6,13 @@ import { useData } from "../../context/DataContext";
 import styles from "./Home.module.css";
 
 const Home = () => {
-  const {
-    data: { postsData },
-  } = useData();
+  const { sortedPostArray } = useData();
 
   return (
     <HomeLayout>
       <NewPostCard />
       <LatestPostHeading />
-      {postsData?.map((post) => (
+      {sortedPostArray?.map((post) => (
         <PostCard post={post} />
       ))}
     </HomeLayout>

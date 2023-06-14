@@ -1,3 +1,18 @@
+/* https://colorhunt.co/palette/16213e0f3460533483e94560 */
+
+:root {
+  --bg-dark-1: #16213e;
+  --bg-dark-2: #0f3460;
+  --bg-light-gray: #f7f7f7;
+  --color-white: #fff;
+  --color-off-white: #dde6ed;
+  --color-off-gray: #9f9aa6;
+  --color-active-red: #ff0060;
+  --color-img-div: gray;
+  --color-btn-red: #e94560;
+  --text-color-dark: black;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
