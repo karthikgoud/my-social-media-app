@@ -1,6 +1,7 @@
 .container {
   margin-top: 1rem;
-  background-color: #fff;
+  background-color: var(--bg-dark-2);
+  color: var(--color-white);
 }
 
 .whoContainer {
@@ -13,5 +14,5 @@
 
 .red {
   font-weight: 700;
-  color: red;
+  color: var(--color-active-red);
 }

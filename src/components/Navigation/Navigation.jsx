@@ -19,7 +19,7 @@ const Navigation = () => {
             style={({ isActive }) => {
               return {
                 fontWeight: isActive ? "bold" : "",
-                color: isActive ? "red" : "black",
+                color: isActive ? "red" : "white",
               };
             }}
           >
@@ -32,7 +32,7 @@ const Navigation = () => {
             style={({ isActive }) => {
               return {
                 fontWeight: isActive ? "bold" : "",
-                color: isActive ? "red" : "black",
+                color: isActive ? "red" : "white",
               };
             }}
           >
@@ -45,7 +45,7 @@ const Navigation = () => {
             style={({ isActive }) => {
               return {
                 fontWeight: isActive ? "bold" : "",
-                color: isActive ? "red" : "black",
+                color: isActive ? "red" : "white",
               };
             }}
           >
@@ -58,7 +58,7 @@ const Navigation = () => {
             style={({ isActive }) => {
               return {
                 fontWeight: isActive ? "bold" : "",
-                color: isActive ? "red" : "black",
+                color: isActive ? "red" : "white",
               };
             }}
           >
