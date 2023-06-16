@@ -3,7 +3,7 @@ import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { useData } from "../../context/DataContext";
 
-const ThreeDotsModal = ({ post, setShowModalDots }) => {
+const ThreeDotsModal = ({ post, setShowModalDots, setShowEditModal }) => {
   const { deletePost } = useData();
 
   function deletePostHandler(id) {
@@ -11,9 +11,13 @@ const ThreeDotsModal = ({ post, setShowModalDots }) => {
     setShowModalDots(false);
   }
 
+  function editHandler(id) {
+    setShowEditModal(true);
+  }
+
   return (
     <div className={styles.modalCont}>
-      <div className={styles.btn}>
+      <div className={styles.btn} onClick={() => editHandler(post._id)}>
         <MdEdit />
         Edit
       </div>

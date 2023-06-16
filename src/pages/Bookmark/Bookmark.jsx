@@ -5,14 +5,14 @@ import styles from "./Bookmark.module.css";
 
 const Bookmark = () => {
   const {
-    data: { postsData },
+    data: { bookMarkedPosts },
   } = useData();
 
   return (
     <HomeLayout>
       <h2 className={styles.bookmarkHeading}>Your Bookmarks</h2>
-      {postsData?.map((post) => (
-        <PostCard post={post} />
+      {bookMarkedPosts?.map((post) => (
+        <PostCard key={post._id} post={post} />
       ))}
     </HomeLayout>
   );

@@ -6,7 +6,7 @@ import { BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { useData } from "../../context/DataContext";
 
-const Navigation = () => {
+const Navigation = ({ setShowCreateModal }) => {
   const {
     data: { userData },
   } = useData();
@@ -65,7 +65,12 @@ const Navigation = () => {
             <BiUser /> <span>Profile</span>
           </NavLink>
         </div>
-        <button className={styles.navBtn}>Create New Post</button>
+        <button
+          className={styles.navBtn}
+          onClick={() => setShowCreateModal(true)}
+        >
+          Create New Post
+        </button>
       </div>
 
       <div className={styles.bottomCont}>

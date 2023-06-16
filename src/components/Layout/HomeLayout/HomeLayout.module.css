@@ -8,6 +8,7 @@
     "header header header"
     "mainDiv mainDiv mainDiv"
     "mainDiv mainDiv mainDiv";
+  position: relative;
 }
 
 .header {
@@ -26,6 +27,16 @@
     "asideL main asideR";
   width: 90%;
   margin: 0 auto;
+}
+
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(237, 244, 244, 0.4);
+  position: absolute;
 }
 
 .asideL {
