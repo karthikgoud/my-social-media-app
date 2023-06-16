@@ -8,11 +8,20 @@ import { BsThreeDots } from "react-icons/bs";
 import { useEffect, useRef, useState } from "react";
 import ThreeDotsModal from "../Modals/ThreeDotsModal";
 import { useData } from "../../context/DataContext";
+import EditModal from "../Modals/EditModal/EditModal";
 
 const PostCard = ({ post }) => {
   const [showModalDots, setShowModalDots] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
-  const { likePost, disLikePost } = useData();
+  const {
+    data: { bookmarkIdArray },
+    dataDispatch,
+    likePost,
+    disLikePost,
+    addBookmark,
+    removeBookmark,
+  } = useData();
 
   const ref = useRef();
 
@@ -34,12 +43,28 @@ const PostCard = ({ post }) => {
     return array.some((arr) => arr.username === "adarshbalika");
   }
 
+  function didUserBookmarked(arr, id) {
+    return arr?.some((arr) => arr === id);
+  }
+
+  //  bookmark handler
+
+  function addBookMarkHandler(id) {
+    addBookmark(id);
+    dataDispatch({ type: "BOOKMARK", payload: id });
+  }
+
+  function removeBookMarkHandler(id) {
+    removeBookmark(id);
+    dataDispatch({ type: "BOOKMARK", payload: id });
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.imgCont}>
         <div className={styles.image}></div>
       </div>
-      <div>
+      <div className={styles.postRightDiv}>
         <div className={styles.cardHeading}>
           <div className={styles.cardUser}>
             <h3>{username}</h3>
@@ -59,10 +84,16 @@ const PostCard = ({ post }) => {
                 <ThreeDotsModal
                   post={post}
                   setShowModalDots={setShowModalDots}
+                  setShowEditModal={setShowEditModal}
                 />
               </div>
             )}
           </div>
+          {showEditModal && (
+            <div className={styles.Modal}>
+              <EditModal post={post} setShowEditModal={setShowEditModal} />
+            </div>
+          )}
         </div>
         <p>{content}</p>
         <div className={styles.cardIcons}>
@@ -85,9 +116,21 @@ const PostCard = ({ post }) => {
           <div>
             <BsShareFill />
           </div>
-          <div>
-            <BsFillBookmarkFill />
-          </div>
+          {didUserBookmarked(bookmarkIdArray, post._id) ? (
+            <div
+              className={styles.bookmarkBtn}
+              onClick={() => removeBookMarkHandler(post._id)}
+            >
+              <BsFillBookmarkFill color="red" />
+            </div>
+          ) : (
+            <div
+              className={styles.bookmarkBtn}
+              onClick={() => addBookMarkHandler(post._id)}
+            >
+              <BsFillBookmarkFill />
+            </div>
+          )}
         </div>
       </div>
     </div>

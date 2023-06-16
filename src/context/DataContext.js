@@ -1,6 +1,8 @@
 import { useEffect, useReducer } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
+import { ToastHandler } from "../../src/components/Toast/Toast";
+
 import axios from "axios";
 
 export const DataContext = createContext();
@@ -8,13 +10,15 @@ export const DataContext = createContext();
 const initialState = {
   userData: {},
   postsData: [],
-  sort: null,
+  sort: "null",
+  bookMarkedPosts: [],
+  bookmarkIdArray: [],
 };
 
 const dataReducer = (state, action) => {
   switch (action.type) {
     case "SET_POSTS_DATA":
-      return { ...state, postsData: [...action.payload] };
+      return { ...state, postsData: [...action.payload].reverse() };
     case "SET_USER_DATA":
       return { ...state, userData: { ...action.payload } };
     case "TRENDING":
@@ -23,6 +27,11 @@ const dataReducer = (state, action) => {
       return { ...state, sort: "Latest" };
     case "OLDEST":
       return { ...state, sort: "Oldest" };
+    case "BOOKMARK_ARRAY":
+      return { ...state, bookmarkIdArray: action.payload };
+    case "BOOKMARKED_POST":
+      return { ...state, bookMarkedPosts: action.payload };
+
     default:
       return state;
   }
@@ -42,6 +51,57 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  // ---------- Create new posts-----------------
+
+  const createPost = async (textContent) => {
+    try {
+      const encodedToken = localStorage.getItem("token");
+
+      const res = await axios.post(
+        `/api/posts`,
+        {
+          postData: {
+            content: textContent,
+          },
+        },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+
+      // console.log("create post", res.data.posts);
+
+      dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  // ----------------- update post (id)-------------
+  const updatePost = async (post) => {
+    try {
+      const encodedToken = localStorage.getItem("token");
+
+      const res = await axios.post(
+        `/api/posts/edit/${post._id}`,
+        {
+          postData: { content: post.content },
+        },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+
+      // console.log("update post", res.data.posts);
+
+      dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
+    } catch (e) {
+      console.log("cannot edit other user", e);
+    }
+  };
   // ----------------- delete post (id)-------------
 
   const deletePost = async (id) => {
@@ -60,10 +120,64 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  // ----------------- get BookMarked Post-------------
+
+  const getBookMarkPosts = (posts, bookIdArr) => {
+    const onlyBookmarked = posts.filter((post) => bookIdArr.includes(post._id));
+    // console.log("only", onlyBookmarked);
+    dataDispatch({ type: "BOOKMARKED_POST", payload: onlyBookmarked });
+  };
+
+  // ----------------- get BookMarked Post-------------
+
+  useEffect(() => {
+    getBookMarkPosts(data.postsData, data.bookmarkIdArray);
+  }, [data.bookmarkIdArray]);
+
   useEffect(() => {
     getAllPost();
   }, []);
 
+  // ----------------- add bookmark id-------------
+
+  const addBookmark = async (id) => {
+    try {
+      const encodedToken = localStorage.getItem("token");
+      const res = await axios.post(
+        `/api/users/bookmark/${id}`,
+        {},
+        {
+          headers: { authorization: encodedToken },
+        }
+      );
+
+      // console.log("bookadd", res.data.bookmarks);
+      dataDispatch({ type: "BOOKMARK_ARRAY", payload: res.data.bookmarks });
+      ToastHandler("success", "Added to Bookmarks");
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  // ----------------- remove bookmark id-------------
+  const removeBookmark = async (id) => {
+    try {
+      const encodedToken = localStorage.getItem("token");
+      const res = await axios.post(
+        `/api/users/remove-bookmark/${id}`,
+        {},
+        {
+          headers: { authorization: encodedToken },
+        }
+      );
+
+      // console.log("Bookremove", res);
+      dataDispatch({ type: "BOOKMARK_ARRAY", payload: res.data.bookmarks });
+      ToastHandler("warn", "Removed from Bookmarks");
+    } catch (e) {
+      console.log(e);
+    }
+  };
   // ----------------- Like post (id)-------------
   const likePost = async (id) => {
     try {
@@ -79,7 +193,7 @@ export const DataProvider = ({ children }) => {
         }
       );
 
-      // console.log(res.data);
+      // console.log("like", res.data);
 
       dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
     } catch (e) {
@@ -102,7 +216,7 @@ export const DataProvider = ({ children }) => {
         }
       );
 
-      // console.log(res.data);
+      // console.log("dislike", res.data);
 
       dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
     } catch (e) {
@@ -135,6 +249,10 @@ export const DataProvider = ({ children }) => {
         likePost,
         disLikePost,
         sortedPostArray,
+        addBookmark,
+        removeBookmark,
+        createPost,
+        updatePost,
       }}
     >
       {children}

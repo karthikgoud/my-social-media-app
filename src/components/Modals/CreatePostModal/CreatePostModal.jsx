@@ -1,19 +1,15 @@
-import { useState } from "react";
-import styles from "./NewPostCard.module.css";
+import React, { useState } from "react";
+import styles from "./CreatePostModal.module.css";
+import { useData } from "../../../context/DataContext";
 
-import { AiOutlinePicture } from "react-icons/ai";
-import { AiOutlineFileGif } from "react-icons/ai";
-import { BsEmojiSmile } from "react-icons/bs";
-import { useData } from "../../context/DataContext";
-
-const NewPostCard = () => {
+const CreatePostModal = ({ setShowCreateModal }) => {
   const { createPost } = useData();
-  const [textAreaInput, setTextAreaInput] = useState("");
-  // console.log(textAreaInput);
 
+  const [textAreaInput, setTextAreaInput] = useState("");
   function postHandler(text) {
     createPost(text, "2023-12-14");
     setTextAreaInput("");
+    setShowCreateModal(false);
   }
   return (
     <div className={styles.newpost}>
@@ -28,12 +24,8 @@ const NewPostCard = () => {
             onChange={(e) => setTextAreaInput(e.target.value)}
           ></textarea>
           <div className={styles.iconsCont}>
-            <div className={styles.postIcons}>
-              <AiOutlinePicture />
-              <AiOutlineFileGif />
-              <BsEmojiSmile />
-            </div>
             <button onClick={() => postHandler(textAreaInput)}>Post</button>
+            <button onClick={() => setShowCreateModal(false)}>Cancel</button>
           </div>
         </div>
       </div>
@@ -41,4 +33,4 @@ const NewPostCard = () => {
   );
 };
 
-export default NewPostCard;
+export default CreatePostModal;

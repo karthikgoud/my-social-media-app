@@ -13,7 +13,7 @@ const Home = () => {
       <NewPostCard />
       <LatestPostHeading />
       {sortedPostArray?.map((post) => (
-        <PostCard post={post} />
+        <PostCard key={post._id} post={post} />
       ))}
     </HomeLayout>
   );

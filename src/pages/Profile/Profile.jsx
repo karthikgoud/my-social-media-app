@@ -18,7 +18,7 @@ const Profile = () => {
       </ProfileMainCard>
       <YourPostHeading />
       {postsData?.map((post) => (
-        <PostCard post={post} />
+        <PostCard key={post._id} post={post} />
       ))}
     </HomeLayout>
   );

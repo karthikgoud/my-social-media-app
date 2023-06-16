@@ -1,3 +1,13 @@
+.modalCont {
+  position: relative;
+}
+
+.Modal {
+  top: -300px;
+  left: -300px;
+  position: absolute;
+}
+
 .btn {
   padding: 0.5rem;
   display: flex;
