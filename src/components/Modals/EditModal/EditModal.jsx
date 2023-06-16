@@ -31,7 +31,7 @@ const EditModal = ({ setShowEditModal, post }) => {
           <textarea
             placeholder="write something interesting"
             cols="50"
-            rows="6"
+            rows="15"
             value={newPost?.content}
             onChange={changeHandler}
           ></textarea>
