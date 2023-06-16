@@ -9,13 +9,15 @@ import { useEffect, useRef, useState } from "react";
 import ThreeDotsModal from "../Modals/ThreeDotsModal";
 import { useData } from "../../context/DataContext";
 import EditModal from "../Modals/EditModal/EditModal";
+import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
 
 const PostCard = ({ post }) => {
   const [showModalDots, setShowModalDots] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [postAvatar, setPostAvatar] = useState("");
 
   const {
-    data: { bookmarkIdArray },
+    data: { bookmarkIdArray, userData, allUsers },
     dataDispatch,
     likePost,
     disLikePost,
@@ -59,10 +61,22 @@ const PostCard = ({ post }) => {
     dataDispatch({ type: "BOOKMARK", payload: id });
   }
 
+  // get post avatar
+
+  const getPostAvatar = (postUsername, usersArray) => {
+    const postUser = usersArray.find((user) => user.username === postUsername);
+    setPostAvatar(postUser.avatarUrl);
+    console.log("useracavaa", postUser);
+  };
+
+  useEffect(() => {
+    getPostAvatar(post.username, allUsers);
+  }, [post.username]);
+
   return (
     <div className={styles.container}>
       <div className={styles.imgCont}>
-        <div className={styles.image}></div>
+        <AvatarLarge imagePath={postAvatar} width="50px" height="50px" />
       </div>
       <div className={styles.postRightDiv}>
         <div className={styles.cardHeading}>

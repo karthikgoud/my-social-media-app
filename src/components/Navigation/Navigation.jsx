@@ -5,6 +5,7 @@ import { BsBookmark } from "react-icons/bs";
 import { BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { useData } from "../../context/DataContext";
+import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
 
 const Navigation = ({ setShowCreateModal }) => {
   const {
@@ -75,7 +76,11 @@ const Navigation = ({ setShowCreateModal }) => {
 
       <div className={styles.bottomCont}>
         <div className={styles.userCont}>
-          <div className={styles.cirImg}></div>
+          <AvatarLarge
+            imagePath={userData.avatarUrl}
+            width="50px"
+            height="50px"
+          />
           <div className={styles.userDetails}>
             <div>{`${userData.firstName} ${userData.lastName}`}</div>
             <div>@{userData.username}</div>

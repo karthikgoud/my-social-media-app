@@ -47,4 +47,18 @@ export const posts = [
     createdAt: "2023-06-14",
     updatedAt: formatDate(),
   },
+
+  {
+    _id: uuid(),
+    content:
+      "Many applications depend on the web for their content. By hosting image assets on a third-party cloud platform, you can ensure that your apps have fast, efficient access to them, you will avoid the storage and bandwidth costs you’d incur hosting the assets using on-premise servers. This is why image-hosting cloud solutions like Cloudinary have become increasingly popular.",
+    likes: {
+      likeCount: 14,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "rahulbaxi",
+    createdAt: "2022-08-14",
+    updatedAt: formatDate(),
+  },
 ];

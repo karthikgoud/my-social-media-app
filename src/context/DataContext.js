@@ -13,6 +13,7 @@ const initialState = {
   sort: "null",
   bookMarkedPosts: [],
   bookmarkIdArray: [],
+  allUsers: [],
 };
 
 const dataReducer = (state, action) => {
@@ -21,6 +22,8 @@ const dataReducer = (state, action) => {
       return { ...state, postsData: [...action.payload].reverse() };
     case "SET_USER_DATA":
       return { ...state, userData: { ...action.payload } };
+    case "SET_ALL_USERS":
+      return { ...state, allUsers: [...action.payload] };
     case "TRENDING":
       return { ...state, sort: "Trending" };
     case "LATEST":
@@ -46,6 +49,30 @@ export const DataProvider = ({ children }) => {
     try {
       const res = await axios.get(`/api/posts`);
       dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  // ---------- get all User-----------------
+
+  const getAllUsers = async () => {
+    try {
+      const res = await axios.get(`/api/users`);
+      // console.log(res);
+      dataDispatch({ type: "SET_ALL_USERS", payload: res.data.users });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  // ---------- get Current User-----------------
+
+  const getCurrentUser = async () => {
+    try {
+      const user = JSON.parse(localStorage.getItem("currentUser"));
+      const res = await axios.get(`/api/users/${user._id}`);
+      dataDispatch({ type: "SET_USER_DATA", payload: res.data.user });
     } catch (e) {
       console.log(e);
     }
@@ -136,6 +163,8 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     getAllPost();
+    getCurrentUser();
+    getAllUsers();
   }, []);
 
   // ----------------- add bookmark id-------------

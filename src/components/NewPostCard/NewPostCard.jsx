@@ -5,9 +5,13 @@ import { AiOutlinePicture } from "react-icons/ai";
 import { AiOutlineFileGif } from "react-icons/ai";
 import { BsEmojiSmile } from "react-icons/bs";
 import { useData } from "../../context/DataContext";
+import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
 
 const NewPostCard = () => {
-  const { createPost } = useData();
+  const {
+    data: { userData },
+    createPost,
+  } = useData();
   const [textAreaInput, setTextAreaInput] = useState("");
   // console.log(textAreaInput);
 
@@ -18,7 +22,11 @@ const NewPostCard = () => {
   return (
     <div className={styles.newpost}>
       <div className={styles.postCont}>
-        <div className={styles.img}></div>
+        <AvatarLarge
+          imagePath={userData.avatarUrl}
+          width="50px"
+          height="50px"
+        />
         <div className={styles.textCont}>
           <textarea
             placeholder="write something interesting"

@@ -8,6 +8,7 @@ import styles from "./HomeLayout.module.css";
 
 const HomeLayout = ({ children }) => {
   const [showCreateModal, setShowCreateModal] = useState(false);
+
   return (
     <div className={styles.homeContainer}>
       <nav className={styles.header}>
