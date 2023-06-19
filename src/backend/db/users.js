@@ -14,8 +14,8 @@ export const users = [
     password: "adarshBalika123",
     bio: "Aspiring Web Application Developer",
     avatarUrl:
-      "https://images.unsplash.com/photo-1622124549569-734d5a66859d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
-    website: "https://karthikrv.netlify.app/",
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1686982311/carlos_ebkcod.jpg",
+    website: "https://Adarsh.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     bookmarks: [],

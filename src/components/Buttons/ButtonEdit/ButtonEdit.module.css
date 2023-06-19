@@ -6,3 +6,9 @@
   outline: 1px solid gray;
   margin: 1rem 0;
 }
+
+.editButton:hover {
+  cursor: pointer;
+  background-color: var(--bg-dark-1);
+  color: #f7f7f7;
+}
