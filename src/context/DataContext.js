@@ -14,12 +14,15 @@ const initialState = {
   bookMarkedPosts: [],
   bookmarkIdArray: [],
   allUsers: [],
+  userPosts: [],
 };
 
 const dataReducer = (state, action) => {
   switch (action.type) {
     case "SET_POSTS_DATA":
       return { ...state, postsData: [...action.payload].reverse() };
+    case "GET_USER_POST":
+      return { ...state, userPosts: [...action.payload] };
     case "SET_USER_DATA":
       return { ...state, userData: { ...action.payload } };
     case "SET_ALL_USERS":
@@ -78,6 +81,47 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  // ---------- Update user-----------------
+
+  const updateUser = async (profileUpdate) => {
+    try {
+      const encodedToken = localStorage.getItem("token");
+
+      const res = await axios.post(
+        `/api/users/edit`,
+        {
+          userData: {
+            bio: profileUpdate.bio,
+            website: profileUpdate.website,
+            avatarUrl: profileUpdate.avatarUrl,
+          },
+        },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+
+      // console.log("update user", res);
+      dataDispatch({ type: "SET_USER_DATA", payload: res.data.user });
+    } catch (e) {
+      console.log("cannot edit other user", e);
+    }
+  };
+
+  // ---------- user user only posts-----------------
+  const getUserPosts = async () => {
+    try {
+      const user = JSON.parse(localStorage.getItem("currentUser"));
+      const res = await axios.get(`/api/posts/user/${user.username}`);
+      // console.log("only", res);
+      dataDispatch({ type: "GET_USER_POST", payload: res.data.posts });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   // ---------- Create new posts-----------------
 
   const createPost = async (textContent) => {
@@ -125,6 +169,7 @@ export const DataProvider = ({ children }) => {
       // console.log("update post", res.data.posts);
 
       dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
+      dataDispatch({ type: "GET_USER_POST", payload: res.data.posts });
     } catch (e) {
       console.log("cannot edit other user", e);
     }
@@ -165,7 +210,16 @@ export const DataProvider = ({ children }) => {
     getAllPost();
     getCurrentUser();
     getAllUsers();
+    getUserPosts();
   }, []);
+
+  useEffect(() => {
+    getUserPosts();
+  }, [data.postsData]);
+
+  useEffect(() => {
+    getAllUsers();
+  }, [data.userData]);
 
   // ----------------- add bookmark id-------------
 
@@ -282,6 +336,7 @@ export const DataProvider = ({ children }) => {
         removeBookmark,
         createPost,
         updatePost,
+        updateUser,
       }}
     >
       {children}

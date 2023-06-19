@@ -1,6 +1,13 @@
 import styles from "./ButtonEdit.module.css";
-const ButtonEdit = () => {
-  return <button className={styles.editButton}>Edit Profile</button>;
+const ButtonEdit = ({ setShowProfileModal }) => {
+  return (
+    <button
+      onClick={() => setShowProfileModal(true)}
+      className={styles.editButton}
+    >
+      Edit Profile
+    </button>
+  );
 };
 
 export default ButtonEdit;

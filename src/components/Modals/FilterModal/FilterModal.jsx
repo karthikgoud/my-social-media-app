@@ -8,10 +8,11 @@ const FilterModal = () => {
   return (
     <div className={styles.modalCont}>
       <div>
-        <label>
+        <label htmlFor="trending" className={styles.label}>
           <input
             type="radio"
             name="filter"
+            id="trending"
             onChange={() => dataDispatch({ type: "TRENDING" })}
           />
           Trending
@@ -19,9 +20,10 @@ const FilterModal = () => {
       </div>
 
       <div>
-        <label>
+        <label htmlFor="latest" className={styles.label}>
           <input
             type="radio"
+            id="latest"
             name="filter"
             onChange={() => dataDispatch({ type: "LATEST" })}
           />
@@ -30,10 +32,11 @@ const FilterModal = () => {
       </div>
 
       <div>
-        <label>
+        <label htmlFor="oldest" className={styles.label}>
           <input
             type="radio"
             name="filter"
+            id="oldest"
             onChange={() => dataDispatch({ type: "OLDEST" })}
           />
           Oldest

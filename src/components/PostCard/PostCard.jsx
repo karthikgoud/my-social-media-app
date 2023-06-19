@@ -66,12 +66,11 @@ const PostCard = ({ post }) => {
   const getPostAvatar = (postUsername, usersArray) => {
     const postUser = usersArray.find((user) => user.username === postUsername);
     setPostAvatar(postUser.avatarUrl);
-    console.log("useracavaa", postUser);
   };
 
   useEffect(() => {
     getPostAvatar(post.username, allUsers);
-  }, [post.username]);
+  }, [post.username, allUsers]);
 
   return (
     <div className={styles.container}>

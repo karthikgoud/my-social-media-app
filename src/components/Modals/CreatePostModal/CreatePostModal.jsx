@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import styles from "./CreatePostModal.module.css";
 import { useData } from "../../../context/DataContext";
+import AvatarLarge from "../../Avatar/AvatarLarge/AvatarLarge";
 
 const CreatePostModal = ({ setShowCreateModal }) => {
-  const { createPost } = useData();
+  const {
+    data: { userData },
+    createPost,
+  } = useData();
 
   const [textAreaInput, setTextAreaInput] = useState("");
   function postHandler(text) {
@@ -14,7 +18,13 @@ const CreatePostModal = ({ setShowCreateModal }) => {
   return (
     <div className={styles.newpost}>
       <div className={styles.postCont}>
-        <div className={styles.img}></div>
+        <div className={styles.img}>
+          <AvatarLarge
+            imagePath={userData.avatarUrl}
+            width="50px"
+            height="50px"
+          />
+        </div>
         <div className={styles.textCont}>
           <textarea
             placeholder="write something interesting"

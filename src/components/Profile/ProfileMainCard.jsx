@@ -4,7 +4,7 @@ import styles from "./ProfileMainCard.module.css";
 
 const ProfileMainCard = ({ children }) => {
   const {
-    data: { userData },
+    data: { userData, userPosts },
   } = useData();
 
   return (
@@ -28,7 +28,7 @@ const ProfileMainCard = ({ children }) => {
           <div>Following</div>
         </div>
         <div className={styles.flex}>
-          <div>2k</div>
+          <div>{userPosts.length}</div>
           <div>Posts</div>
         </div>
         <div className={styles.flex}>
