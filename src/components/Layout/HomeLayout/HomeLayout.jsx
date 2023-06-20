@@ -5,9 +5,14 @@ import CreatePostModal from "../../Modals/CreatePostModal/CreatePostModal";
 import Navigation from "../../Navigation/Navigation";
 import SearchAside from "../../SearchAside/SearchAside";
 import styles from "./HomeLayout.module.css";
+import ModalWrapper from "../../Modals/ModalWrapper/ModalWrapper";
 
 const HomeLayout = ({ children }) => {
   const [showCreateModal, setShowCreateModal] = useState(false);
+
+  const handleClick = () => {
+    setShowCreateModal(false);
+  };
 
   return (
     <div className={styles.homeContainer}>
@@ -24,10 +29,11 @@ const HomeLayout = ({ children }) => {
           <AsideFollowBox />
         </aside>
       </div>
+
       {showCreateModal && (
-        <div className={styles.Modal}>
+        <ModalWrapper onClose={handleClick}>
           <CreatePostModal setShowCreateModal={setShowCreateModal} />
-        </div>
+        </ModalWrapper>
       )}
     </div>
   );

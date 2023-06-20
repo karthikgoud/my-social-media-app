@@ -5,18 +5,21 @@ import { AiOutlinePicture } from "react-icons/ai";
 import { AiOutlineFileGif } from "react-icons/ai";
 import { BsEmojiSmile } from "react-icons/bs";
 import { useData } from "../../context/DataContext";
+import { createPost } from "../../services/postsServices";
 import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
+import { useAuth } from "../../context/AuthContext";
 
 const NewPostCard = () => {
   const {
     data: { userData },
-    createPost,
+    dataDispatch,
+    // createPost,
   } = useData();
   const [textAreaInput, setTextAreaInput] = useState("");
-  // console.log(textAreaInput);
+  const encodedToken = localStorage.getItem("token");
 
   function postHandler(text) {
-    createPost(text, "2023-12-14");
+    createPost(text, encodedToken, dataDispatch);
     setTextAreaInput("");
   }
   return (
