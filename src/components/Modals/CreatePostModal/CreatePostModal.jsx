@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import styles from "./CreatePostModal.module.css";
 import { useData } from "../../../context/DataContext";
 import AvatarLarge from "../../Avatar/AvatarLarge/AvatarLarge";
+import { createPost } from "../../../services/postsServices";
 
 const CreatePostModal = ({ setShowCreateModal }) => {
   const {
     data: { userData },
-    createPost,
+    dataDispatch,
   } = useData();
 
   const [textAreaInput, setTextAreaInput] = useState("");
+  const encodedToken = localStorage.getItem("token");
+
   function postHandler(text) {
-    createPost(text, "2023-12-14");
+    createPost(text, encodedToken, dataDispatch);
     setTextAreaInput("");
     setShowCreateModal(false);
   }

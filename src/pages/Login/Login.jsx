@@ -33,15 +33,14 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className={styles.loginCont}>
-        <div className={styles.loginCard}>
-          <h2>Login</h2>
+    <div className={styles.loginCont}>
+      <div className={styles.loginCard}>
+        <h2>Login</h2>
+        <form onSubmit={handleLogin} className={styles.formCont}>
           <div className={styles.inputEmail}>
             <label htmlFor="username">Username</label>
             <input
               type="text"
-              name=""
               id="username"
               placeholder="username"
               value={loginForm.username}
@@ -54,7 +53,6 @@ const Login = () => {
             <label htmlFor="password">Password</label>
             <input
               type="password"
-              name=""
               id="password"
               placeholder="*********"
               onChange={(e) =>
@@ -62,24 +60,28 @@ const Login = () => {
               }
             />
           </div>
-          <div className={styles.forgotCont}>
-            <div>
-              <label htmlFor="">
-                <input type="checkbox" name="" /> Remember me
-              </label>
+        </form>
+
+        <div className={styles.forgotCont}>
+          <div className={styles.rememberCont}>
+            <div className={styles.flexCenter}>
+              <input id="remember" type="checkbox" />
             </div>
-            <div className={styles.forgotPassword}>Forgot your password?</div>
+            <div className={styles.flexCenter}>
+              <label htmlFor="remember">Remember me</label>
+            </div>
           </div>
-          <button className={styles.loginBtn} onClick={handleLogin}>
-            Login
-          </button>
-          <button className={styles.loginBtn} onClick={handleGuestLogin}>
-            Set guest details
-          </button>
-          <a className={styles.createNewAcc} href="/signup">
-            New member? Create an account
-          </a>
+          <div className={styles.forgotPassword}>Forgot your password?</div>
         </div>
+        <button className={styles.loginBtn} onClick={handleLogin}>
+          Login
+        </button>
+        <button className={styles.loginBtn} onClick={handleGuestLogin}>
+          Set guest details
+        </button>
+        <a className={styles.createNewAcc} href="/signup">
+          New member? Create an account
+        </a>
       </div>
     </div>
   );

@@ -8,8 +8,10 @@ import { BsThreeDots } from "react-icons/bs";
 import { useEffect, useRef, useState } from "react";
 import ThreeDotsModal from "../Modals/ThreeDotsModal";
 import { useData } from "../../context/DataContext";
-import EditModal from "../Modals/EditModal/EditModal";
+import EditModal from "../../components/Modals/EditModal/EditModal";
+
 import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
+import ModalWrapper from "../Modals/ModalWrapper/ModalWrapper";
 
 const PostCard = ({ post }) => {
   const [showModalDots, setShowModalDots] = useState(false);
@@ -102,10 +104,11 @@ const PostCard = ({ post }) => {
               </div>
             )}
           </div>
+
           {showEditModal && (
-            <div className={styles.Modal}>
+            <ModalWrapper onClose={() => setShowEditModal(false)}>
               <EditModal post={post} setShowEditModal={setShowEditModal} />
-            </div>
+            </ModalWrapper>
           )}
         </div>
         <p>{content}</p>
