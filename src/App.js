@@ -38,7 +38,14 @@ function App() {
             </RequiresAuth>
           }
         />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile/:username"
+          element={
+            <RequiresAuth>
+              <Profile />
+            </RequiresAuth>
+          }
+        />
         <Route path="/explore" element={<Explore />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/postdetail" element={<PostDetail />} />

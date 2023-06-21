@@ -7,3 +7,7 @@
   margin: 1rem 0;
   color: #fff;
 }
+
+.followButton:hover {
+  cursor: pointer;
+}

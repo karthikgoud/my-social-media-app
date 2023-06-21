@@ -38,9 +38,57 @@
   gap: 2.5rem;
 }
 
-.flex {
+.followDetails {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0.3rem;
+}
+
+.followDetails div:nth-child(2) {
+  color: var(--color-off-gray);
+}
+
+.followDetails:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/*  */
+
+.followingModal {
+  width: 300px;
+  padding: 1rem;
+  background-color: var(--bg-dark-1);
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.user {
+  display: flex;
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+}
+
+.user:hover {
+  background-color: var(--bg-dark-2);
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  cursor: pointer;
+}
+
+.usernameText {
+  color: var(--color-off-gray);
 }
