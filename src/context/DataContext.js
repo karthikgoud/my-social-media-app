@@ -10,7 +10,7 @@ export const DataContext = createContext();
 const initialState = {
   userData: {},
   postsData: [],
-  sort: "null",
+  sort: "Latest",
   bookMarkedPosts: [],
   bookmarkIdArray: [],
   allUsers: [],
@@ -62,7 +62,6 @@ export const DataProvider = ({ children }) => {
   const getAllUsers = async () => {
     try {
       const res = await axios.get(`/api/users`);
-      // console.log(res);
       dataDispatch({ type: "SET_ALL_USERS", payload: res.data.users });
     } catch (e) {
       console.log(e);
@@ -307,6 +306,48 @@ export const DataProvider = ({ children }) => {
       console.log(e);
     }
   };
+  // ---------------Follow user------------------------
+
+  const followUser = async (user) => {
+    try {
+      const encodedToken = localStorage.getItem("token");
+
+      const res = await axios.post(
+        `/api/users/follow/${user._id}`,
+        {},
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      // console.log(res.data.user);
+      dataDispatch({ type: "SET_USER_DATA", payload: res.data.user });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  // ---------------------------------------
+
+  const unFollowUser = async (user) => {
+    try {
+      const encodedToken = localStorage.getItem("token");
+
+      const res = await axios.post(
+        `/api/users/unfollow/${user._id}`,
+        {},
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      // console.log(res.data.user);
+      dataDispatch({ type: "SET_USER_DATA", payload: res.data.user });
+    } catch (e) {
+      console.log(e);
+    }
+  };
   // ---------------------------------------
 
   const getSortedPosts = (posts, sortValue) => {
@@ -322,7 +363,19 @@ export const DataProvider = ({ children }) => {
     return sortedArray;
   };
 
-  const sortedPostArray = getSortedPosts(data.postsData, data.sort);
+  const followingArray = data.userData.following;
+
+  const postOfFollowerUser = data.postsData.filter((user) =>
+    followingArray?.find((item) => item?.username === user?.username)
+  );
+
+  const postOfUser = data.postsData.filter(
+    (user) => user?.username === data?.userData?.username
+  );
+
+  const timeLinePost = [...postOfFollowerUser, ...postOfUser];
+
+  const sortedPostArray = getSortedPosts(timeLinePost, data.sort);
 
   return (
     <DataContext.Provider
@@ -337,6 +390,8 @@ export const DataProvider = ({ children }) => {
         removeBookmark,
         updatePost,
         updateUser,
+        followUser,
+        unFollowUser,
       }}
     >
       {children}

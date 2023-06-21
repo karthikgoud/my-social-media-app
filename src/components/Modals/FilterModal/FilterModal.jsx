@@ -3,7 +3,7 @@ import styles from "./FilterModal.module.css";
 import { useData } from "../../../context/DataContext";
 
 const FilterModal = () => {
-  const { dataDispatch } = useData();
+  const { dataDispatch, data } = useData();
 
   return (
     <div className={styles.modalCont}>

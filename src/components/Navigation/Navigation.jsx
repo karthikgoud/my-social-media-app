@@ -11,6 +11,7 @@ const Navigation = ({ setShowCreateModal }) => {
   const {
     data: { userData },
   } = useData();
+
   return (
     <div className={styles.navCont}>
       <div className={styles.topCont}>
@@ -55,7 +56,7 @@ const Navigation = ({ setShowCreateModal }) => {
         </div>
         <div className={styles.iconCont}>
           <NavLink
-            to="/profile"
+            to={`/profile/${userData.username}`}
             style={({ isActive }) => {
               return {
                 fontWeight: isActive ? "bold" : "",
@@ -74,7 +75,10 @@ const Navigation = ({ setShowCreateModal }) => {
         </button>
       </div>
 
-      <div className={styles.bottomCont}>
+      <NavLink
+        to={`/profile/${userData.username}`}
+        className={styles.bottomCont}
+      >
         <div className={styles.userCont}>
           <AvatarLarge
             imagePath={userData.avatarUrl}
@@ -87,7 +91,7 @@ const Navigation = ({ setShowCreateModal }) => {
           </div>
         </div>
         <div className={styles.dots}>...</div>
-      </div>
+      </NavLink>
     </div>
   );
 };

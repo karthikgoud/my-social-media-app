@@ -31,7 +31,7 @@ export const posts = [
       dislikedBy: [],
     },
     username: "adarshbalika",
-    createdAt: "2022-07-01",
+    createdAt: "2016-07-01",
     updatedAt: formatDate(),
   },
   {
@@ -59,6 +59,75 @@ export const posts = [
     },
     username: "rahulbaxi",
     createdAt: "2022-08-14",
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "Web for their content. By hosting image assets on a third-party cloud platform, you can ensure that your apps have fast, efficient access to them, you will avoid the storage and bandwidth costs you’d incur hosting the assets using on-premise servers. This is why image-hosting cloud solutions like Cloudinary have become increasingly popular.",
+    likes: {
+      likeCount: 14,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "rahulbaxi",
+    createdAt: "2022-05-14",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "Efficient access to them, you will avoid the storage and bandwidth costs you’d incur hosting the assets using on-premise servers. This is why image-hosting cloud solutions like Cloudinary have become increasingly popular.",
+    likes: {
+      likeCount: 9,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "carlsmith",
+    createdAt: "2022-03-14",
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "Destructuring in JavaScript has totally changed the way JavaScript is written these days;  code is more concise to write but but, from a visual standpoint, the syntax of the language has changed so much.  Any good developer knows, however, that change is the constant we live in.",
+    likes: {
+      likeCount: 2,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "carlsmith",
+    createdAt: "2022-02-14",
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "Tesla, Inc. is an American multinational automotive and energy company headquartered in Austin, Texas. Tesla designs and manufactures electric vehicles, stationary battery energy storage devices from home to grid-scale, solar panels and solar roof tiles, an",
+    likes: {
+      likeCount: 6,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "elonmusk",
+    createdAt: "2019-02-14",
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: uuid(),
+    content:
+      "Attempting to develop inventions he could patent and market, Tesla conducted a range of experiments with mechanical oscillators/generators, electrical discharge tubes, and early X-ray imaging. He also built a wirelessly controlled boat, one of the first ever exhibited. Tesla became well known as an inventor and demonstrated his achievements to celebrities and wealthy",
+    likes: {
+      likeCount: 6,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "lucypaul",
+    createdAt: "2023-05-04",
     updatedAt: formatDate(),
   },
 ];

@@ -1,4 +1,10 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { useData } from "./DataContext";
 
 export const AuthContext = createContext();
@@ -56,6 +62,13 @@ export const AuthProvider = ({ children }) => {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    getLogin(
+      authState?.currentUser?.username,
+      authState?.currentUser?.password
+    );
+  }, []);
 
   return (
     <AuthContext.Provider value={{ authState, authDispatch, getLogin }}>

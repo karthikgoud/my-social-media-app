@@ -1,41 +1,146 @@
-import { useData } from "../../context/DataContext";
+import { useState } from "react";
 import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
+import ModalWrapper from "../Modals/ModalWrapper/ModalWrapper";
 import styles from "./ProfileMainCard.module.css";
+import { useNavigate } from "react-router";
 
-const ProfileMainCard = ({ children }) => {
+const ProfileMainCard = ({
+  children,
+  currentUserProfile,
+  currentUserPosts,
+}) => {
+  const [openModal, setOpenModal] = useState(false);
+  const [openFollowersModal, setFollowersOpenModal] = useState(false);
+
+  const navigate = useNavigate();
   const {
-    data: { userData, userPosts },
-  } = useData();
+    bio,
+    website,
+    username,
+    firstName,
+    lastName,
+    avatarUrl,
+    following,
+    followers,
+  } = currentUserProfile;
 
+  function handleOpen() {
+    setOpenModal(true);
+  }
+
+  function handleFollowersModalOpen() {
+    setFollowersOpenModal(true);
+  }
+
+  function handleClose() {
+    setOpenModal(false);
+  }
+
+  function handleFollowersModalClose() {
+    setFollowersOpenModal(false);
+  }
+
+  function handleClick(user) {
+    navigate(`/profile/${user.username}`);
+    setOpenModal(false);
+    setFollowersOpenModal(false);
+  }
   return (
-    <div className={styles.profileCont}>
-      <AvatarLarge
-        imagePath={userData.avatarUrl}
-        width="100px"
-        height="100px"
-      />
-      {/* <div className={styles.profileImage}></div> */}
-      <h2>
-        {userData.firstName} {userData?.lastName}
-      </h2>
-      <div className={styles.username}>@{userData?.username}</div>
-      {children}
-      <p>{userData.bio}</p>
-      <p className={styles.website}>{userData?.website}</p>
-      <div className={styles.userInfo}>
-        <div className={styles.flex}>
-          <div>{userData?.following?.length}</div>
-          <div>Following</div>
-        </div>
-        <div className={styles.flex}>
-          <div>{userPosts.length}</div>
-          <div>Posts</div>
-        </div>
-        <div className={styles.flex}>
-          <div>{userData?.followers?.length}</div>
-          <div>Followers</div>
+    <div>
+      <div className={styles.profileCont}>
+        <AvatarLarge imagePath={avatarUrl} width="100px" height="100px" />
+        <h2>
+          {firstName} {lastName}
+        </h2>
+        <div className={styles.username}>@{username}</div>
+        {children}
+        <p>{bio}</p>
+        <p className={styles.website}>{website}</p>
+        <div className={styles.userInfo}>
+          <div className={styles.followDetails} onClick={handleOpen}>
+            <div>{following?.length}</div>
+            <div>Following</div>
+          </div>
+          <div className={styles.followDetails}>
+            <div>{currentUserPosts.length}</div>
+            <div>Posts</div>
+          </div>
+          <div
+            className={styles.followDetails}
+            onClick={handleFollowersModalOpen}
+          >
+            <div>{followers?.length}</div>
+            <div>Followers</div>
+          </div>
         </div>
       </div>
+
+      {openModal && (
+        <ModalWrapper onClose={handleClose}>
+          <div className={styles.followingModal}>
+            <div className={styles.modalHeader}>
+              <div>Following</div>
+              <div className={styles.closeBtn} onClick={handleClose}>
+                X
+              </div>
+            </div>
+            <div className={styles.userDetails}>
+              {following?.map((user) => (
+                <div onClick={() => handleClick(user)} className={styles.user}>
+                  <div>
+                    <AvatarLarge
+                      imagePath={user.avatarUrl}
+                      width="40px"
+                      height="40px"
+                    />
+                  </div>
+                  <div className={styles.userText}>
+                    <div>
+                      {user.firstName} {user.lastName}
+                    </div>
+                    <div className={styles.usernameText}>@{user.username}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ModalWrapper>
+      )}
+
+      {openFollowersModal && (
+        <ModalWrapper onClose={handleFollowersModalClose}>
+          <div className={styles.followingModal}>
+            <div className={styles.modalHeader}>
+              <div>Followers</div>
+              <div
+                className={styles.closeBtn}
+                onClick={handleFollowersModalClose}
+              >
+                X
+              </div>
+            </div>
+            <div className={styles.userDetails}>
+              {followers?.map((user) => (
+                <div onClick={() => handleClick(user)} className={styles.user}>
+                  <div>
+                    <AvatarLarge
+                      imagePath={user.avatarUrl}
+                      width="40px"
+                      height="40px"
+                    />
+                  </div>
+                  <div className={styles.userText}>
+                    <div>
+                      {user.firstName} {user.lastName}
+                    </div>
+                    <div className={styles.usernameText}>@{user.username}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ModalWrapper>
+      )}
     </div>
   );
 };
