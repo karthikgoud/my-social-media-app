@@ -1,0 +1,73 @@
+.newpost {
+  width: max-content;
+  height: 350px;
+  padding: 2rem;
+  color: #fff;
+  background-color: #34495e;
+  display: flex;
+  justify-content: space-between;
+  z-index: 30;
+}
+
+.img {
+  background-color: gray;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+
+.textCont {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textCont textarea {
+  background-color: #d4e6f1;
+  color: var(--text-color-dark);
+  border: none;
+  width: 100%;
+  min-height: 75px;
+  padding: 0.5rem;
+  resize: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.textCont textarea::placeholder {
+  color: var(--text-color-dark);
+}
+.textCont textarea:focus {
+  outline: none;
+}
+
+.postCont {
+  display: flex;
+}
+
+.iconsCont {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postIcons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.iconsCont button {
+  border: none;
+  padding: 0.5rem 2rem;
+  background-color: var(--color-btn-red);
+
+  color: #fff;
+}
+
+.iconsCont button:hover {
+  cursor: pointer;
+}

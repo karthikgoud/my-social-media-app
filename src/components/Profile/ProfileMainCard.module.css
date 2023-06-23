@@ -1,0 +1,94 @@
+.profileCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+  color: var(--color-white);
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.username {
+  color: rgb(175, 170, 170);
+}
+
+.profileCont p {
+  margin: 0 1rem;
+}
+
+.website {
+  margin: 1rem 0;
+  color: red;
+}
+
+.userInfo {
+  background-color: var(--bg-dark-1);
+  outline: 1px solid var(--color-white);
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  gap: 2.5rem;
+}
+
+.followDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.followDetails div:nth-child(2) {
+  color: var(--color-off-gray);
+}
+
+.followDetails:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/*  */
+
+.followingModal {
+  width: 300px;
+  padding: 1rem;
+  background-color: var(--bg-dark-1);
+  display: flex;
+  flex-direction: column;
+  color: var(--color-white);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.user {
+  display: flex;
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+}
+
+.user:hover {
+  background-color: var(--bg-dark-2);
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  cursor: pointer;
+}
+
+.usernameText {
+  color: var(--color-off-gray);
+}

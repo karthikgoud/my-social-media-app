@@ -1,0 +1,30 @@
+.userCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: var(--bg-dark-2);
+}
+
+.userCont:hover {
+  background-color: var(--bg-dark-1);
+  cursor: pointer;
+}
+
+.userImage {
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.red {
+  color: red;
+  font-weight: 700;
+}
+
+.red:hover {
+  cursor: pointer;
+  color: rgb(187, 145, 145);
+}

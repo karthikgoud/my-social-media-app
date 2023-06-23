@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg-dark-2);
+  padding: 1rem;
+  width: 90%;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+  z-index: 8;
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imgCont {
+  padding-right: 0.5rem;
+}
+
+.image {
+  background-color: gray;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.postRightDiv {
+  width: 100%;
+}
+
+.cardHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.threeDotsModal {
+  background-color: lightgray;
+  right: 0px;
+  top: 30px;
+  position: absolute;
+  border-radius: 5px;
+}
+
+.cardUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.threeDotsCont {
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+.threeDotsCont:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.cardIcons {
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1.5rem;
+}
+
+.likeBtn:hover {
+  cursor: pointer;
+}
+
+.bookmarkBtn:hover {
+  cursor: pointer;
+}

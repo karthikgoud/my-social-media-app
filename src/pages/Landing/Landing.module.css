@@ -1,0 +1,92 @@
+.container {
+  /* background-color: #f4f6f6; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+
+.introCont {
+  height: 70%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.imgCont {
+  width: 50%;
+}
+
+.imgCont img {
+  width: 100%;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.textMy {
+  color: red;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.textBig {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+}
+
+.greyColor {
+  color: #9a9a9a;
+}
+
+.textSmall {
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+
+/*  join btn */
+
+.joinCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #ff3b30;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #cb4335;
+}
+
+.loginLink {
+  margin-top: 1rem;
+  color: blue;
+  text-decoration: none;
+}
+.loginLink:hover {
+  cursor: pointer;
+}

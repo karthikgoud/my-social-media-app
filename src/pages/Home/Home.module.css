@@ -1,0 +1,49 @@
+.homeContainer {
+  background-color: #f7f7f7;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: max-content;
+  grid-template-areas:
+    "header header header"
+    "mainDiv mainDiv mainDiv"
+    "mainDiv mainDiv mainDiv";
+}
+
+.header {
+  background-color: #fff;
+  grid-area: header;
+}
+
+.mainDiv {
+  display: grid;
+  grid-template-columns: fit-content(max-content) 2fr 1fr;
+  grid-area: mainDiv;
+  grid-template-areas:
+    "asideL main asideR"
+    "asideL main asideR";
+  width: 90%;
+  margin: 0 auto;
+}
+
+.asideL {
+  grid-area: asideL;
+  padding-top: 2.5rem;
+  width: max-content;
+}
+
+.main {
+  margin-top: 2.5rem;
+  grid-area: main;
+}
+
+.asideR {
+  grid-area: asideR;
+  padding-top: 2.5rem;
+}
+
+.message {
+  color: white;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+}

@@ -1,38 +1,27 @@
+/* https://colorhunt.co/palette/16213e0f3460533483e94560 */
+
+:root {
+  --bg-dark-1: #16213e;
+  --bg-dark-2: #0f3460;
+  --bg-light-gray: #f7f7f7;
+  --color-white: #fff;
+  --color-off-white: #dde6ed;
+  --color-off-gray: #9f9aa6;
+  --color-active-red: #ff0060;
+  --color-img-div: #808080;
+  --color-btn-red: #e94560;
+  --color-btn-green: #1eae0e;
+  --text-color-dark: black;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  /* width: 90%; */
+  background-color: #fff;
+  height: 100vh;
 }

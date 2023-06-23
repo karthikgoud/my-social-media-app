@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  width: 90%;
+  color: var(--color-off-white);
+  position: relative;
+}
+
+.container h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.equaliser {
+  padding: 0.4rem;
+}
+
+.equaliser:hover {
+  cursor: pointer;
+  background-color: var(--color-off-gray);
+  border-radius: 50%;
+}

@@ -1,0 +1,30 @@
+.searchCont {
+  display: flex;
+  align-items: center;
+  outline: 1px solid var(--bg-dark-1);
+  padding: 0 1rem;
+  background-color: var(--bg-dark-2);
+}
+
+.searchIcon {
+  font-size: 1.1rem;
+}
+
+.searchCont input {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 0.5rem;
+  border: none;
+  background-color: var(--bg-dark-2);
+
+  color: var(--color-white);
+  color: var(--text-color-dark);
+}
+
+.searchCont input::placeholder {
+  color: var(--color-white);
+}
+
+.searchCont input:focus {
+  outline: none;
+}

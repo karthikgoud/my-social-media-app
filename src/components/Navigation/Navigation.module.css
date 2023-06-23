@@ -1,0 +1,87 @@
+.navCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+  padding: 1rem 1rem;
+  color: var(--color-white);
+}
+
+.iconCont {
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.iconCont a {
+  text-decoration: none;
+  /* color: black; */
+}
+.iconCont a span {
+  padding-left: 0.4rem;
+}
+
+.navBtn {
+  background-color: var(--color-btn-red);
+  border: none;
+  width: 12rem;
+  padding: 1rem 1rem;
+  color: var(--color-white);
+  margin-top: 1rem;
+}
+
+.navBtn:hover {
+  cursor: pointer;
+}
+
+/* bottom cont */
+
+.bottomCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.bottomCont:hover {
+  background-color: var(--bg-dark-2);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.userCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cirImg {
+  background-color: var(--color-img-div);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.userDetails {
+  margin-left: 0.6rem;
+}
+
+.userDetails div:first-child {
+  font-weight: 700;
+}
+
+.userDetails div:nth-child(2) {
+  color: var(--color-off-gray);
+}
+
+.dots {
+  color: var(--color-off-gray);
+  font-weight: bold;
+}
+
+.active {
+  color: var(--color-active-red);
+}
