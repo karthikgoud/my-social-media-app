@@ -10,13 +10,13 @@ import ThreeDotsModal from "../Modals/ThreeDotsModal";
 import { useData } from "../../context/DataContext";
 import EditModal from "../../components/Modals/EditModal/EditModal";
 
-import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
 import ModalWrapper from "../Modals/ModalWrapper/ModalWrapper";
+import UserAvatar from "../UserAvatar/UserAvatar";
+import { useAuth } from "../../context/AuthContext";
 
 const PostCard = ({ post }) => {
   const [showModalDots, setShowModalDots] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [postAvatar, setPostAvatar] = useState("");
 
   const {
     data: { bookmarkIdArray, userData, allUsers },
@@ -26,6 +26,8 @@ const PostCard = ({ post }) => {
     addBookmark,
     removeBookmark,
   } = useData();
+
+  const { currentUser } = useAuth();
 
   const ref = useRef();
 
@@ -44,7 +46,7 @@ const PostCard = ({ post }) => {
   const { content, username, createdAt } = post;
 
   function didUserLiked(array) {
-    return array.some((arr) => arr.username === "adarshbalika");
+    return array.some((arr) => arr.username === currentUser.username);
   }
 
   function didUserBookmarked(arr, id) {
@@ -63,21 +65,14 @@ const PostCard = ({ post }) => {
     dataDispatch({ type: "BOOKMARK", payload: id });
   }
 
-  // get post avatar
-
-  const getPostAvatar = (postUsername, usersArray) => {
-    const postUser = usersArray.find((user) => user.username === postUsername);
-    setPostAvatar(postUser.avatarUrl);
-  };
-
-  useEffect(() => {
-    getPostAvatar(post.username, allUsers);
-  }, [post.username, allUsers]);
+  const getPostUser = allUsers?.find(
+    (user) => user?.username === post?.username
+  );
 
   return (
     <div className={styles.container}>
       <div className={styles.imgCont}>
-        <AvatarLarge imagePath={postAvatar} width="50px" height="50px" />
+        <UserAvatar user={getPostUser} />
       </div>
       <div className={styles.postRightDiv}>
         <div className={styles.cardHeading}>
@@ -103,13 +98,12 @@ const PostCard = ({ post }) => {
                 />
               </div>
             )}
+            {showEditModal && (
+              <ModalWrapper onClose={() => setShowEditModal(false)}>
+                <EditModal post={post} setShowEditModal={setShowEditModal} />
+              </ModalWrapper>
+            )}
           </div>
-
-          {showEditModal && (
-            <ModalWrapper onClose={() => setShowEditModal(false)}>
-              <EditModal post={post} setShowEditModal={setShowEditModal} />
-            </ModalWrapper>
-          )}
         </div>
         <p>{content}</p>
         <div className={styles.cardIcons}>

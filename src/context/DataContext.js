@@ -121,34 +121,6 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  // ---------- Create new posts-----------------
-
-  // const createPost = async (textContent) => {
-  //   try {
-  //     const encodedToken = localStorage.getItem("token");
-
-  //     const res = await axios.post(
-  //       `/api/posts`,
-  //       {
-  //         postData: {
-  //           content: textContent,
-  //         },
-  //       },
-  //       {
-  //         headers: {
-  //           authorization: encodedToken,
-  //         },
-  //       }
-  //     );
-
-  //     // console.log("create post", res.data.posts);
-
-  //     dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
   // ----------------- update post (id)-------------
   const updatePost = async (post) => {
     try {

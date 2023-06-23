@@ -1,0 +1,69 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(50deg, #142850, #27496d, #0c7b93);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mySignup {
+  background: #00a8cc;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.mySignup h1 {
+  text-align: center;
+}
+
+.mySignup div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem;
+  gap: 1rem;
+  position: relative;
+}
+
+.mySignup div label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.mySignup div input {
+  width: 250px;
+  font-size: 1.2rem;
+}
+
+.mySignup button {
+  padding: 1rem;
+  width: 200px;
+  margin: 10px auto;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.2rem;
+  background-color: var(--bg-dark-1);
+  color: white;
+}
+
+.mySignup button:hover {
+  cursor: pointer;
+
+  color: var(--color-btn-green);
+}
+
+.eye {
+  position: absolute;
+  right: 30px;
+  top: 22px;
+  cursor: pointer;
+}
+
+.mySignup a {
+  text-align: center;
+  color: yellow;
+}
+.mySignup a:hover {
+  text-decoration: underline;
+}

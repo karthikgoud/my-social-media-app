@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./ToFollowCard.module.css";
-import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
 import { useData } from "../../context/DataContext";
 import { useNavigate } from "react-router-dom";
+import UserAvatar from "../UserAvatar/UserAvatar";
 
 const ToFollowCard = ({ user }) => {
   const { followUser } = useData();
@@ -20,9 +20,7 @@ const ToFollowCard = ({ user }) => {
 
   return (
     <div className={styles.userCont} onClick={() => handleUserClick(user)}>
-      <div className={styles.userImage}>
-        <AvatarLarge imagePath={user.avatarUrl} width="40px" height="40px" />
-      </div>
+      <UserAvatar user={user} />
       <div>
         <h3>
           {user.firstName} {user.lastName}

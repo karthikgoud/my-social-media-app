@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ToastHandler } from "../../components/Toast/Toast";
 
 const Login = () => {
-  const { authDispatch, getLogin } = useAuth();
+  const { getLogin, setIsLoggedIn } = useAuth();
 
   const [loginForm, setLoginForm] = useState({
     username: "",
@@ -20,22 +20,22 @@ const Login = () => {
       return;
     }
     getLogin(loginForm.username, loginForm.password);
-    authDispatch({ type: "SET_ISLOGGEDIN" });
+    setIsLoggedIn(true);
     navigate("/home");
   };
 
   const handleGuestLogin = () => {
     setLoginForm((prev) => ({
       ...prev,
-      username: "adarshbalika",
-      password: "adarshBalika123",
+      username: "adarshsingh",
+      password: "adarsh123",
     }));
   };
 
   return (
     <div className={styles.loginCont}>
       <div className={styles.loginCard}>
-        <h2>Login</h2>
+        <h1>Login</h1>
         <form onSubmit={handleLogin} className={styles.formCont}>
           <div className={styles.inputEmail}>
             <label htmlFor="username">Username</label>
@@ -63,14 +63,6 @@ const Login = () => {
         </form>
 
         <div className={styles.forgotCont}>
-          <div className={styles.rememberCont}>
-            <div className={styles.flexCenter}>
-              <input id="remember" type="checkbox" />
-            </div>
-            <div className={styles.flexCenter}>
-              <label htmlFor="remember">Remember me</label>
-            </div>
-          </div>
           <div className={styles.forgotPassword}>Forgot your password?</div>
         </div>
         <button className={styles.loginBtn} onClick={handleLogin}>

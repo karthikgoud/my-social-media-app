@@ -1,14 +1,18 @@
 import { useState } from "react";
+
 import { useData } from "../../../context/DataContext";
-import AvatarLarge from "../../Avatar/AvatarLarge/AvatarLarge";
 import styles from "./EditProfileModal.module.css";
 import { MdOutlinePhotoCamera } from "react-icons/md";
+import UserAvatar from "../../UserAvatar/UserAvatar";
+import { useAuth } from "../../../context/AuthContext";
 
 const EditProfileModal = ({ setShowProfileModal }) => {
   const {
-    data: { userData },
+    data: { userData, allUsers },
     updateUser,
   } = useData();
+
+  const { currentUser } = useAuth();
 
   const [profileUpdate, setProfileUpdate] = useState({
     bio: userData.bio,
@@ -16,8 +20,11 @@ const EditProfileModal = ({ setShowProfileModal }) => {
     website: userData.website,
   });
 
+  const currentAvatarUser = allUsers.find(
+    (dbUser) => dbUser?.username === currentUser?.username
+  );
+
   const uploadImage = async (image) => {
-    console.log(image);
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "ovaqn7lw");
@@ -32,8 +39,6 @@ const EditProfileModal = ({ setShowProfileModal }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data.url);
-        // setAvatarUrl(json.secure_url);
         setProfileUpdate((prev) => ({ ...prev, avatarUrl: data.url }));
       })
       .catch((error) => {
@@ -41,8 +46,6 @@ const EditProfileModal = ({ setShowProfileModal }) => {
         // toast.error("Image Uploading failed");
       });
   };
-
-  console.log("newurl", profileUpdate);
 
   function handleUpdate(e, profileUpdate) {
     e.preventDefault();
@@ -65,13 +68,13 @@ const EditProfileModal = ({ setShowProfileModal }) => {
         <div className={styles.avatarCont}>
           <div>Avatar:</div>
           <div>
-            <AvatarLarge
-              imagePath={userData.avatarUrl}
-              width="50px"
-              height="50px"
-            />
+            <UserAvatar user={currentAvatarUser} />
+
             <label htmlFor="file">
-              <MdOutlinePhotoCamera />
+              <MdOutlinePhotoCamera
+                size={20}
+                className={styles.avatarEditIcon}
+              />
             </label>
             <input
               id="file"

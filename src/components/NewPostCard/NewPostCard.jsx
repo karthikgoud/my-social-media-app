@@ -6,16 +6,22 @@ import { AiOutlineFileGif } from "react-icons/ai";
 import { BsEmojiSmile } from "react-icons/bs";
 import { useData } from "../../context/DataContext";
 import { createPost } from "../../services/postsServices";
-import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
+import UserAvatar from "../UserAvatar/UserAvatar";
 import { useAuth } from "../../context/AuthContext";
 
 const NewPostCard = () => {
   const {
-    data: { userData },
+    data: { userData, allUsers },
     dataDispatch,
-    // createPost,
   } = useData();
   const [textAreaInput, setTextAreaInput] = useState("");
+
+  const { currentUser } = useAuth();
+
+  const currentAvatarUser = allUsers.find(
+    (dbUser) => dbUser?.username === currentUser?.username
+  );
+
   const encodedToken = localStorage.getItem("token");
 
   function postHandler(text) {
@@ -25,11 +31,7 @@ const NewPostCard = () => {
   return (
     <div className={styles.newpost}>
       <div className={styles.postCont}>
-        <AvatarLarge
-          imagePath={userData.avatarUrl}
-          width="50px"
-          height="50px"
-        />
+        <UserAvatar user={currentAvatarUser} />
         <div className={styles.textCont}>
           <textarea
             placeholder="write something interesting"

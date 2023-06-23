@@ -5,12 +5,19 @@ import { BsBookmark } from "react-icons/bs";
 import { BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { useData } from "../../context/DataContext";
-import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
+import { useAuth } from "../../context/AuthContext";
+import UserAvatar from "../UserAvatar/UserAvatar";
 
 const Navigation = ({ setShowCreateModal }) => {
   const {
-    data: { userData },
+    data: { allUsers, userData },
   } = useData();
+
+  const { currentUser } = useAuth();
+
+  const currentAvatarUser = allUsers.find(
+    (dbUser) => dbUser?.username === currentUser?.username
+  );
 
   return (
     <div className={styles.navCont}>
@@ -80,11 +87,7 @@ const Navigation = ({ setShowCreateModal }) => {
         className={styles.bottomCont}
       >
         <div className={styles.userCont}>
-          <AvatarLarge
-            imagePath={userData.avatarUrl}
-            width="50px"
-            height="50px"
-          />
+          <UserAvatar user={currentAvatarUser} />
           <div className={styles.userDetails}>
             <div>{`${userData.firstName} ${userData.lastName}`}</div>
             <div>@{userData.username}</div>

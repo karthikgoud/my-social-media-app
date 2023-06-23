@@ -1,8 +1,8 @@
 import { useState } from "react";
-import AvatarLarge from "../Avatar/AvatarLarge/AvatarLarge";
 import ModalWrapper from "../Modals/ModalWrapper/ModalWrapper";
 import styles from "./ProfileMainCard.module.css";
 import { useNavigate } from "react-router";
+import UserAvatar from "../UserAvatar/UserAvatar";
 
 const ProfileMainCard = ({
   children,
@@ -48,7 +48,8 @@ const ProfileMainCard = ({
   return (
     <div>
       <div className={styles.profileCont}>
-        <AvatarLarge imagePath={avatarUrl} width="100px" height="100px" />
+        <UserAvatar user={currentUserProfile} />
+
         <h2>
           {firstName} {lastName}
         </h2>
@@ -87,13 +88,7 @@ const ProfileMainCard = ({
             <div className={styles.userDetails}>
               {following?.map((user) => (
                 <div onClick={() => handleClick(user)} className={styles.user}>
-                  <div>
-                    <AvatarLarge
-                      imagePath={user.avatarUrl}
-                      width="40px"
-                      height="40px"
-                    />
-                  </div>
+                  <UserAvatar user={user} />
                   <div className={styles.userText}>
                     <div>
                       {user.firstName} {user.lastName}
@@ -122,13 +117,7 @@ const ProfileMainCard = ({
             <div className={styles.userDetails}>
               {followers?.map((user) => (
                 <div onClick={() => handleClick(user)} className={styles.user}>
-                  <div>
-                    <AvatarLarge
-                      imagePath={user.avatarUrl}
-                      width="40px"
-                      height="40px"
-                    />
-                  </div>
+                  <UserAvatar user={user} />
                   <div className={styles.userText}>
                     <div>
                       {user.firstName} {user.lastName}

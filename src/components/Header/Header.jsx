@@ -1,27 +1,24 @@
 import styles from "./Header.module.css";
-import alpha from "../../assets/images/alpha.png";
+import bird from "../../assets/images/bird.png";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  const {
-    authState: { isLoggedIn },
-    authDispatch,
-  } = useAuth();
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
 
   const navigate = useNavigate();
 
   function handleLogout() {
-    authDispatch({ type: "SET_ISLOGGEDIN" });
+    setIsLoggedIn(false);
     navigate("/home");
   }
 
   return (
     <div className={styles.headerCont}>
-      <div>
-        {/* <img src={alpha} alt="logo" /> */}
-        <NavLink to="/home">twig</NavLink>
+      <div className={styles.logo}>
+        <img src={bird} alt="logo" width={40} />
+        <NavLink to="/home">twipple</NavLink>
       </div>
       <button onClick={handleLogout}>Logout</button>
     </div>

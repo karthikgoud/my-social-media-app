@@ -1,25 +1,25 @@
-import { useFetcher } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
 import ToFollowCard from "../ToFollowCard/ToFollowCard";
 import styles from "./AsideFollowBox.module.css";
-import { useEffect, useState } from "react";
 
 const AsideFollowBox = () => {
   const {
-    data: { allUsers, userData },
+    data: { allUsers },
   } = useData();
 
+  const { currentUser } = useAuth();
+
   const userPresent = allUsers?.find(
-    (dbUser) => dbUser.username === userData.username
+    (dbUser) => dbUser?.username === currentUser?.username
   );
 
   const filteredUsers = allUsers
-    ?.filter((dbUser) => dbUser.username !== userPresent?.username)
+    ?.filter((dbUser) => dbUser?.username !== userPresent?.username)
     ?.filter(
       (eachUser) =>
         !userPresent?.following.find(
-          (item) => item.username === eachUser.username
+          (item) => item?.username === eachUser?.username
         )
     );
 
