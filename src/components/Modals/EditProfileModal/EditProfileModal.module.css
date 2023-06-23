@@ -1,5 +1,5 @@
 .container {
-  background-color: white;
+  background-color: var(--bg-dark-2);
   position: absolute;
   top: 80px;
   right: 35%;
@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
+  color: white;
 }
 
 .avatarCont {
@@ -52,12 +53,14 @@
   padding: 0.6rem 0;
   width: 50%;
   margin: 0 auto;
+  background-color: var(--bg-dark-1);
+  color: white;
+  border: none;
 }
 
 .btn:hover {
-  background-color: var(--bg-dark-1);
-  color: white;
   cursor: pointer;
+  color: red;
 }
 
 input {

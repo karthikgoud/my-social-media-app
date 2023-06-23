@@ -9,30 +9,11 @@ import { useData } from "./DataContext";
 
 export const AuthContext = createContext();
 
-const initialState = {
-  isLoggedIn: false,
-  isSignUp: false,
-  token: null,
-  currentUser: null,
-};
-
-const authReducer = (state, action) => {
-  switch (action.type) {
-    case "SET_TOKEN":
-      return { ...state, token: action.payload };
-
-    case "SET_CURRENTUSER":
-      return { ...state, currentUser: action.payload };
-
-    case "SET_ISLOGGEDIN":
-      return { ...state, isLoggedIn: !state.isLoggedIn };
-    default:
-      return state;
-  }
-};
-
 export const AuthProvider = ({ children }) => {
-  const [authState, authDispatch] = useReducer(authReducer, initialState);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [token, setToken] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const { getUserPost, dataDispatch } = useData();
 
@@ -52,10 +33,10 @@ export const AuthProvider = ({ children }) => {
       const { foundUser, encodedToken } = await res.json();
 
       localStorage.setItem("token", encodedToken);
-      authDispatch({ type: "SET_TOKEN", payload: encodedToken });
+      setToken(encodedToken);
 
       localStorage.setItem("currentUser", JSON.stringify(foundUser));
-      authDispatch({ type: "SET_CURRENTUSER", payload: foundUser });
+      setCurrentUser(foundUser);
 
       dataDispatch({ type: "SET_USER_DATA", payload: foundUser });
     } catch (e) {
@@ -63,15 +44,48 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    getLogin(
-      authState?.currentUser?.username,
-      authState?.currentUser?.password
-    );
-  }, []);
+  const getSignUp = async (username, password, firstName, lastName) => {
+    try {
+      const cred = {
+        username: username,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+      };
+
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        body: JSON.stringify(cred),
+      });
+
+      const { createdUser, encodedToken } = await res.json();
+
+      localStorage.setItem("token", encodedToken);
+      setToken(encodedToken);
+
+      localStorage.setItem("currentUser", JSON.stringify(createdUser));
+      setCurrentUser(createdUser);
+
+      dataDispatch({ type: "SET_USER_DATA", payload: createdUser });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
-    <AuthContext.Provider value={{ authState, authDispatch, getLogin }}>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        isSignUp,
+        token,
+        currentUser,
+        setIsLoggedIn,
+        setIsSignUp,
+        getLogin,
+        getSignUp,
+        setCurrentUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

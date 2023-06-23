@@ -20,20 +20,18 @@ const Profile = () => {
     data: { allUsers, postsData, userData },
   } = useData();
 
-  const {
-    authState: { currentUser: authUser },
-  } = useAuth();
+  const { currentUser } = useAuth();
 
   const handleClick = () => {
     setShowProfileModal(false);
   };
 
   const currentUserProfile = allUsers.find(
-    (user) => user.username === username
+    (user) => user?.username === username
   );
 
   const currentUserPosts = postsData.filter(
-    (post) => post.username === username
+    (post) => post?.username === username
   );
 
   return (
@@ -42,13 +40,17 @@ const Profile = () => {
         currentUserProfile={currentUserProfile}
         currentUserPosts={currentUserPosts}
       >
-        {currentUserProfile.username === authUser.username ? (
+        {currentUserProfile?.username === currentUser?.username ? (
           <ButtonEdit setShowProfileModal={setShowProfileModal} />
         ) : (
           <ButtonFollow currentUserProfile={currentUserProfile} />
         )}
       </ProfileMainCard>
       <YourPostHeading />
+      {currentUserPosts.length === 0 && (
+        <p className={styles.message}>No User Posts</p>
+      )}
+
       {currentUserPosts?.map((post) => (
         <PostCard key={post._id} post={post} />
       ))}

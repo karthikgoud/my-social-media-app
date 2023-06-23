@@ -1,3 +1,10 @@
 .editProfileModal {
   z-index: 100;
 }
+
+.message {
+  color: white;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+}

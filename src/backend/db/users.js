@@ -9,9 +9,9 @@ export const users = [
   {
     _id: uuid(),
     firstName: "Adarsh",
-    lastName: "Balika",
-    username: "adarshbalika",
-    password: "adarshBalika123",
+    lastName: "Singh",
+    username: "adarshsingh",
+    password: "adarsh123",
     bio: "Aspiring Web Application Developer",
     avatarUrl:
       "https://res.cloudinary.com/dgesxov4w/image/upload/v1686982311/carlos_ebkcod.jpg",

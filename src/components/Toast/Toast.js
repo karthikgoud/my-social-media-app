@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 
 const ToastHandler = (type, message) => {
-  console.log("toast", type, message);
   if (type === "error") {
     toast.error(message, {
       position: "top-center",

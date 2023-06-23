@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { useData } from "../../../context/DataContext";
 import styles from "./EditModal.module.css";
+import UserAvatar from "../../UserAvatar/UserAvatar";
 
 const EditModal = ({ setShowEditModal, post }) => {
-  const { updatePost } = useData();
-  // console.log("edit modal", post);
+  const {
+    updatePost,
+    data: { allUsers },
+  } = useData();
 
   const [newPost, setNewPost] = useState(post);
-  // console.log("check", newPost);
-
-  const user = localStorage.getItem("currentUser");
 
   function updataHandler(post) {
-    // console.log(post);
-
     updatePost(post);
     setShowEditModal(false);
   }
@@ -23,10 +21,17 @@ const EditModal = ({ setShowEditModal, post }) => {
     setNewPost((prev) => ({ ...prev, content: text }));
   }
 
+  const getPostAvatar = allUsers.find(
+    (user) => user?.username === post?.username
+  );
+
+  console.log({ allUsers });
+
   return (
     <div className={styles.newpost}>
       <div className={styles.postCont}>
-        <div className={styles.img}></div>
+        <UserAvatar user={getPostAvatar} />
+
         <div className={styles.textCont}>
           <textarea
             placeholder="write something interesting"

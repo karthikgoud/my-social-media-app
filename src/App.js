@@ -10,6 +10,7 @@ import Login from "./pages/Login/Login";
 import RequiresAuth from "./Auth/RequiresAuth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Signup from "./pages/SignUp/Signup";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/postdetail" element={<PostDetail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
   );

@@ -12,7 +12,7 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: white;
 }
 
@@ -31,4 +31,10 @@ a {
   cursor: pointer;
   color: var(--color-off-gray);
   outline: 1px solid;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -2,9 +2,7 @@ import { Navigate, useLocation } from "react-router";
 import { useAuth } from "../context/AuthContext";
 
 const RequiresAuth = ({ children }) => {
-  const {
-    authState: { isLoggedIn },
-  } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   const pathname = useLocation();
 

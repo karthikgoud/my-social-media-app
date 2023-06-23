@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import styles from "./CreatePostModal.module.css";
 import { useData } from "../../../context/DataContext";
-import AvatarLarge from "../../Avatar/AvatarLarge/AvatarLarge";
 import { createPost } from "../../../services/postsServices";
+import { useAuth } from "../../../context/AuthContext";
+import UserAvatar from "../../UserAvatar/UserAvatar";
 
 const CreatePostModal = ({ setShowCreateModal }) => {
   const {
     data: { userData },
     dataDispatch,
   } = useData();
+  const { currentUser } = useAuth();
 
   const [textAreaInput, setTextAreaInput] = useState("");
   const encodedToken = localStorage.getItem("token");
@@ -21,13 +23,7 @@ const CreatePostModal = ({ setShowCreateModal }) => {
   return (
     <div className={styles.newpost}>
       <div className={styles.postCont}>
-        <div className={styles.img}>
-          <AvatarLarge
-            imagePath={userData.avatarUrl}
-            width="50px"
-            height="50px"
-          />
-        </div>
+        <UserAvatar user={userData} />
         <div className={styles.textCont}>
           <textarea
             placeholder="write something interesting"
