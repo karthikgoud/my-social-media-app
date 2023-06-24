@@ -3,7 +3,7 @@
   background-color: var(--bg-dark-1);
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  height: max-content;
+  min-height: 100vh;
   grid-template-areas:
     "header header header"
     "mainDiv mainDiv mainDiv"
@@ -53,4 +53,5 @@
 .asideR {
   grid-area: asideR;
   padding-top: 2.5rem;
+  justify-self: end;
 }

@@ -13,8 +13,9 @@ export const users = [
     username: "adarshsingh",
     password: "adarsh123",
     bio: "Aspiring Web Application Developer",
-    avatarUrl:
-      "https://res.cloudinary.com/dgesxov4w/image/upload/v1686982311/carlos_ebkcod.jpg",
+    // avatarUrl:
+    //   "https://res.cloudinary.com/dgesxov4w/image/upload/v1686982311/carlos_ebkcod.jpg",
+    avatarUrl: null,
     website: "https://Adarsh.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),

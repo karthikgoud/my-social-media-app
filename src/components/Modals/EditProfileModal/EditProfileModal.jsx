@@ -5,6 +5,9 @@ import styles from "./EditProfileModal.module.css";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import UserAvatar from "../../UserAvatar/UserAvatar";
 import { useAuth } from "../../../context/AuthContext";
+import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import AvatarModal from "../AvatarModal/AvatarModal";
+import { avatarUrl } from "../../../constants/avatarUrl";
 
 const EditProfileModal = ({ setShowProfileModal }) => {
   const {
@@ -47,10 +50,16 @@ const EditProfileModal = ({ setShowProfileModal }) => {
       });
   };
 
+  const userInitials = currentUser?.firstName?.slice(0, 1).toUpperCase();
+
   function handleUpdate(e, profileUpdate) {
     e.preventDefault();
     updateUser(profileUpdate);
     setShowProfileModal(false);
+  }
+
+  function handleAvatarClick(imgUrl) {
+    setProfileUpdate((prev) => ({ ...prev, avatarUrl: imgUrl }));
   }
 
   return (
@@ -65,17 +74,38 @@ const EditProfileModal = ({ setShowProfileModal }) => {
             X
           </div>
         </div>
+        <div className={styles.selectCont}>
+          {avatarUrl.map((avatar) => {
+            return (
+              <div onClick={() => handleAvatarClick(avatar.path)}>
+                <img src={avatar.path} alt={avatar.name} width={50} />
+              </div>
+            );
+          })}
+        </div>
         <div className={styles.avatarCont}>
           <div>Avatar:</div>
-          <div>
-            <UserAvatar user={currentAvatarUser} />
+          <div className={styles.inputCont}>
+            <span className={styles.avatarSpan}>
+              {profileUpdate.avatarUrl ? (
+                <img
+                  src={profileUpdate.avatarUrl}
+                  alt={profileUpdate.bio}
+                  className={styles.avatarImg}
+                />
+              ) : (
+                <div className={styles.initials}>{userInitials}</div>
+              )}
+            </span>
 
             <label htmlFor="file">
               <MdOutlinePhotoCamera
                 size={20}
                 className={styles.avatarEditIcon}
               />
+              Upload
             </label>
+
             <input
               id="file"
               type="file"
