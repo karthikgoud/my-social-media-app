@@ -43,7 +43,7 @@ const PostCard = ({ post }) => {
     };
   }, [showModalDots]);
 
-  const { content, username, createdAt } = post;
+  const { content, username, createdAt, postImage, postVideo } = post;
 
   function didUserLiked(array) {
     return array.some((arr) => arr.username === currentUser.username);
@@ -106,6 +106,18 @@ const PostCard = ({ post }) => {
           </div>
         </div>
         <p>{content}</p>
+        {postImage && (
+          <div className={styles.postImageCont}>
+            <img src={postImage} alt={username} />
+          </div>
+        )}
+        {postVideo && (
+          <div className={styles.postVideoCont}>
+            <video controls width="400">
+              <source src={postVideo} type="video/mp4" />
+            </video>
+          </div>
+        )}
         <div className={styles.cardIcons}>
           {didUserLiked(post.likes.likedBy) ? (
             <div

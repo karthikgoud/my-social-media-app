@@ -11,6 +11,7 @@ const Bookmark = () => {
   return (
     <HomeLayout>
       <h2 className={styles.bookmarkHeading}>Your Bookmarks</h2>
+      {/* {bookMarkedPosts.length === 0 && <p>No bookmarks</p>} */}
       {bookMarkedPosts?.map((post) => (
         <PostCard key={post._id} post={post} />
       ))}

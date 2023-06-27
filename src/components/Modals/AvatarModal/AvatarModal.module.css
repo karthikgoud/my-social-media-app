@@ -1,0 +1,49 @@
+.modalCont {
+  position: absolute;
+  background-color: var(--bg-dark-1);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: 5px;
+  z-index: 6;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.heading div {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modalCont img {
+  width: 50px;
+}
+
+.avatarCont {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+.avatarCont div {
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.5rem;
+  padding: 0.3rem;
+}
+
+.avatarCont div:hover {
+  outline: solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}

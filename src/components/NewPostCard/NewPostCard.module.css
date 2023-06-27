@@ -58,10 +58,13 @@
   border: none;
   padding: 0.5rem 2rem;
   background-color: var(--color-btn-red);
-
   color: #fff;
 }
 
 .iconsCont button:hover {
+  cursor: pointer;
+}
+
+.addImage :hover {
   cursor: pointer;
 }
