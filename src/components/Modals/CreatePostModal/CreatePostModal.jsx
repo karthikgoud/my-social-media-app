@@ -13,11 +13,17 @@ const CreatePostModal = ({ setShowCreateModal }) => {
   const { currentUser } = useAuth();
 
   const [textAreaInput, setTextAreaInput] = useState("");
+  const [newPostData, setNewPostData] = useState({
+    text: "",
+    postImage: null,
+  });
   const encodedToken = localStorage.getItem("token");
 
-  function postHandler(text) {
-    createPost(text, encodedToken, dataDispatch);
-    setTextAreaInput("");
+  function postHandler(post) {
+    createPost(post, encodedToken, dataDispatch);
+
+    setNewPostData((prev) => ({ ...prev, text: "" }));
+
     setShowCreateModal(false);
   }
   return (
@@ -29,11 +35,13 @@ const CreatePostModal = ({ setShowCreateModal }) => {
             placeholder="write something interesting"
             cols="50"
             rows="6"
-            value={textAreaInput}
-            onChange={(e) => setTextAreaInput(e.target.value)}
+            value={newPostData.text}
+            onChange={(e) =>
+              setNewPostData((prev) => ({ ...prev, text: e.target.value }))
+            }
           ></textarea>
           <div className={styles.iconsCont}>
-            <button onClick={() => postHandler(textAreaInput)}>Post</button>
+            <button onClick={() => postHandler(newPostData)}>Post</button>
             <button onClick={() => setShowCreateModal(false)}>Cancel</button>
           </div>
         </div>
