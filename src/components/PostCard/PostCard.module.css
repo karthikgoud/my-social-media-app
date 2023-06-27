@@ -78,3 +78,23 @@
 .bookmarkBtn:hover {
   cursor: pointer;
 }
+
+.postImageCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.postImageCont img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.postVideoCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}

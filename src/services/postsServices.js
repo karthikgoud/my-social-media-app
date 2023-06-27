@@ -1,12 +1,14 @@
 import axios from "axios";
 
-export async function createPost(textContent, encodedToken, dataDispatch) {
+export async function createPost(newPost, encodedToken, dataDispatch) {
   try {
     const res = await axios.post(
       `/api/posts`,
       {
         postData: {
-          content: textContent,
+          content: newPost.text,
+          postImage: newPost.postImage,
+          postVideo: newPost.postVideo,
         },
       },
       {
@@ -15,7 +17,6 @@ export async function createPost(textContent, encodedToken, dataDispatch) {
         },
       }
     );
-
     dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
   } catch (e) {
     console.log(e);
