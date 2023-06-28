@@ -15,6 +15,7 @@ const initialState = {
   bookmarkIdArray: [],
   allUsers: [],
   userPosts: [],
+  pagedPosts: [],
 };
 
 const dataReducer = (state, action) => {
@@ -23,6 +24,8 @@ const dataReducer = (state, action) => {
       return { ...state, postsData: [...action.payload].reverse() };
     case "GET_USER_POST":
       return { ...state, userPosts: [...action.payload] };
+    case "GET_PAGED_POST":
+      return { ...state, pagedPosts: [...action.payload] };
     case "SET_USER_DATA":
       return { ...state, userData: { ...action.payload } };
     case "SET_ALL_USERS":
@@ -106,6 +109,17 @@ export const DataProvider = ({ children }) => {
       dataDispatch({ type: "SET_USER_DATA", payload: res.data.user });
     } catch (e) {
       console.log("cannot edit other user", e);
+    }
+  };
+
+  // ------------get paged post from server------------
+
+  const getPagedPosts = async (pageNum) => {
+    try {
+      const res = await axios.get(`/api/posts/page/${pageNum}`);
+      dataDispatch({ type: "GET_PAGED_POST", payload: res.data.posts });
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -364,6 +378,8 @@ export const DataProvider = ({ children }) => {
         updateUser,
         followUser,
         unFollowUser,
+        getAllPost,
+        getPagedPosts,
       }}
     >
       {children}

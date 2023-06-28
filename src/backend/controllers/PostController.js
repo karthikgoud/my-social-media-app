@@ -291,3 +291,24 @@ export const deletePostHandler = function (schema, request) {
     );
   }
 };
+
+/**
+ * For Infinite scrolling
+ * This handler gets all posts in the db.
+ * send GET Request at /api/posts/page/pageNum
+ * */
+//=>0,1,2,3
+//1=>0,1,2,3,4,5,6,7
+//2=>0, 1,2,3,4,5,6,7,8,9,10,11
+
+export const getLatestPagedPosts = function (schema, request) {
+  const { pageNum } = request.params;
+
+  // simple sorting of post data
+  const latestPosts = this.db.posts.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+  // number of posts per pages logic
+  const paginatedPosts = latestPosts.slice(0, pageNum * 1 + 2);
+  return new Response(200, {}, { posts: paginatedPosts });
+};
