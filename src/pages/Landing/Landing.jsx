@@ -1,14 +1,17 @@
-import styles from "./Landing.module.css";
-
-import landing from "../../assets/images/landing-img1.png";
 import { NavLink } from "react-router-dom";
+
+import styles from "./Landing.module.css";
+// import landing from "../../assets/images/landing-img2.png";
+import landing from "../../assets/images/world-2.png";
+import bird from "../../assets/images/bird.png";
 
 const Landing = () => {
   return (
     <div className={styles.container}>
       <div className={styles.introCont}>
         <div className={styles.title}>
-          <span className={styles.textMy}>My</span> Website
+          <img src={bird} alt="logo" width={80} />
+          <span className={styles.textMy}>twipple</span>
         </div>
         <div className={styles.details}>
           <div className={styles.textSmall}>

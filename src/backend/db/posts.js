@@ -16,12 +16,42 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "adarshsingh",
+    username: "karthikgoud",
     postImage: null,
     postVideo:
       "https://res.cloudinary.com/dgesxov4w/video/upload/v1687716844/videos/pexels-cottonbro-studio-5803089-640x360-25fps_d5yajb.mp4",
     createdAt: "2021-03-21",
-    // createdAt: onlyDate(),
+
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content: "Let connect here...https://github.com/karthikgoud",
+    likes: {
+      likeCount: 2,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "karthikgoud",
+    postImage: null,
+    postVideo: null,
+    createdAt: "2021-03-21",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content:
+      "Checkout my React e-commerce project https://all-in-one-shop-ecom.netlify.app/ ",
+    likes: {
+      likeCount: 2,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "karthikgoud",
+    postImage:
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688039097/postImages/allinone-logo-crop_jewwgw.jpg",
+    postVideo: null,
+    createdAt: "2023-04-21",
     updatedAt: formatDate(),
   },
   {
@@ -33,11 +63,12 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "adarshsingh",
+    username: "karthikgoud",
     postImage:
       "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717651/postImages/akshay-syal-5vDTocCCutE-unsplash_irak9j.jpg",
     postVideo: null,
-    createdAt: "2023-06-26  ",
+    createdAt: "2023-06-26",
+
     updatedAt: formatDate(),
   },
   {
@@ -53,7 +84,24 @@ export const posts = [
     postImage:
       "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717856/postImages/herry-sutanto-uuDGytDGPx0-unsplash_otsith.jpg",
     postVideo: null,
-    createdAt: "2023-06-14",
+    createdAt: "2022-06-14",
+
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    content: "Hungry....",
+    likes: {
+      likeCount: 7,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "shubhamsoni",
+    postImage:
+      "https://media.giphy.com/media/ZeKUG0XRpTdE8lGwW2/giphy-downsized-large.gif",
+    postVideo: null,
+    createdAt: "2022-06-14",
+
     updatedAt: formatDate(),
   },
 
@@ -70,6 +118,7 @@ export const posts = [
     postImage: null,
     postVideo: null,
     createdAt: "2022-08-14",
+
     updatedAt: formatDate(),
   },
 
@@ -87,6 +136,7 @@ export const posts = [
       "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717648/postImages/ashim-d-silva-KF7pv-8OiyY-unsplash_fsriue.jpg",
     postVideo: null,
     createdAt: "2022-05-14",
+
     updatedAt: formatDate(),
   },
   {
@@ -103,6 +153,7 @@ export const posts = [
       "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717648/postImages/jannes-jacobs-NfsB3jPVlcM-unsplash_nfx1ed.jpg",
     postVideo: null,
     createdAt: "2022-03-14",
+
     updatedAt: formatDate(),
   },
 
@@ -119,6 +170,7 @@ export const posts = [
     postImage: null,
     postVideo: null,
     createdAt: "2022-02-14",
+
     updatedAt: formatDate(),
   },
 

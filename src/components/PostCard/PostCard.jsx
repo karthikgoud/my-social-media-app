@@ -1,4 +1,3 @@
-import styles from "./PostCard.module.css";
 import { BsHeartFill } from "react-icons/bs";
 import { RiMessageFill } from "react-icons/ri";
 import { BsShareFill } from "react-icons/bs";
@@ -6,10 +5,12 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { BsDot } from "react-icons/bs";
 import { BsThreeDots } from "react-icons/bs";
 import { useEffect, useRef, useState } from "react";
+import Linkify from "react-linkify";
+
 import ThreeDotsModal from "../Modals/ThreeDotsModal";
 import { useData } from "../../context/DataContext";
 import EditModal from "../../components/Modals/EditModal/EditModal";
-
+import styles from "./PostCard.module.css";
 import ModalWrapper from "../Modals/ModalWrapper/ModalWrapper";
 import UserAvatar from "../UserAvatar/UserAvatar";
 import { useAuth } from "../../context/AuthContext";
@@ -105,7 +106,13 @@ const PostCard = ({ post }) => {
             )}
           </div>
         </div>
-        <p>{content}</p>
+        <Linkify
+          properties={{
+            target: "_blank",
+          }}
+        >
+          <p className={styles.postContentP}>{content}</p>
+        </Linkify>
         {postImage && (
           <div className={styles.postImageCont}>
             <img src={postImage} alt={username} />

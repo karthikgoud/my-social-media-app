@@ -4,6 +4,7 @@
   padding: 0.5rem;
   color: #fff;
   background-color: var(--bg-dark-2);
+  position: relative;
 }
 
 .img {
@@ -52,6 +53,7 @@
   display: flex;
   gap: 1rem;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
 .iconsCont button {
@@ -67,4 +69,12 @@
 
 .addImage :hover {
   cursor: pointer;
+}
+
+.icons {
+  font-size: 1.2rem;
+}
+
+.icons:hover {
+  color: red;
 }

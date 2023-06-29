@@ -27,9 +27,12 @@ const Login = () => {
   const handleGuestLogin = () => {
     setLoginForm((prev) => ({
       ...prev,
-      username: "adarshsingh",
-      password: "adarsh123",
+      username: "karthikgoud",
+      password: "karthikVeeresh",
     }));
+    getLogin("karthikgoud", "karthikVeeresh");
+    setIsLoggedIn(true);
+    navigate("/home");
   };
 
   return (
@@ -69,7 +72,7 @@ const Login = () => {
           Login
         </button>
         <button className={styles.loginBtn} onClick={handleGuestLogin}>
-          Set guest details
+          Log In as Guest
         </button>
         <a className={styles.createNewAcc} href="/signup">
           New member? Create an account

@@ -25,6 +25,11 @@
 .website {
   margin: 1rem 0;
   color: red;
+  text-decoration: none;
+}
+
+.website:hover {
+  text-decoration: underline;
 }
 
 .userInfo {
