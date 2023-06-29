@@ -61,27 +61,27 @@ export const emojiData = [
     emojiName: "Smiling Face with Tear",
   },
   {
-    emojiImg: "😍",
-    emojiName: "Smiling Face with Heart-Eyes",
+    emojiImg: "👍",
+    emojiName: "Thumbs Up",
   },
   {
-    emojiImg: "😍",
-    emojiName: "Smiling Face with Heart-Eyes",
+    emojiImg: "👌",
+    emojiName: "OK Hand",
   },
   {
-    emojiImg: "😍",
-    emojiName: "Smiling Face with Heart-Eyes",
+    emojiImg: "🎂",
+    emojiName: "Birthday Cake",
   },
   {
-    emojiImg: "😍",
-    emojiName: "Smiling Face with Heart-Eyes",
+    emojiImg: "🎉",
+    emojiName: "Party Popper",
   },
   {
-    emojiImg: "😍",
-    emojiName: "Smiling Face with Heart-Eyes",
+    emojiImg: "🥳",
+    emojiName: "Partying Face",
   },
   {
-    emojiImg: "😍",
-    emojiName: "Smiling Face with Heart-Eyes",
+    emojiImg: "🤯",
+    emojiName: "Exploding Head",
   },
 ];
