@@ -16,6 +16,7 @@ const initialState = {
   allUsers: [],
   userPosts: [],
   pagedPosts: [],
+  isLoading: false,
 };
 
 const dataReducer = (state, action) => {
@@ -40,6 +41,8 @@ const dataReducer = (state, action) => {
       return { ...state, bookmarkIdArray: action.payload };
     case "BOOKMARKED_POST":
       return { ...state, bookMarkedPosts: action.payload };
+    case "LOADER":
+      return { ...state, isLoading: action.payload };
 
     default:
       return state;
@@ -52,9 +55,13 @@ export const DataProvider = ({ children }) => {
   // ---------- get all posts-----------------
 
   const getAllPost = async () => {
+    dataDispatch({ type: "LOADER", payload: true });
     try {
       const res = await axios.get(`/api/posts`);
-      dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
+      setTimeout(() => {
+        dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
+        dataDispatch({ type: "LOADER", payload: false });
+      }, 2000);
     } catch (e) {
       console.log(e);
     }
