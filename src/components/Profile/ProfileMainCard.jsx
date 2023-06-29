@@ -56,7 +56,9 @@ const ProfileMainCard = ({
         <div className={styles.username}>@{username}</div>
         {children}
         <p>{bio}</p>
-        <p className={styles.website}>{website}</p>
+        <a href={website} className={styles.website} target="_blank">
+          {website}
+        </a>
         <div className={styles.userInfo}>
           <div className={styles.followDetails} onClick={handleOpen}>
             <div>{following?.length}</div>
