@@ -80,7 +80,7 @@ const NewPostCard = () => {
         <UserAvatar user={currentAvatarUser} />
         <div className={styles.textCont}>
           <textarea
-            placeholder="Write Text or post an Image/Video..."
+            placeholder="Whats happening...?"
             cols="50"
             rows="6"
             value={newPostData.text}
