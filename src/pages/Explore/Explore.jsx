@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { TailSpin } from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 
 import ExploreNavigation from "../../components/ExploreNavigation/ExploreNavigation";
 import HomeLayout from "../../components/Layout/HomeLayout/HomeLayout";
@@ -39,12 +39,12 @@ const Explore = () => {
         {pagedPosts.length === postsData.length ? (
           ""
         ) : (
-          <TailSpin
-            height="40"
-            width="40"
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
             color="#ff0060"
-            ariaLabel="tail-spin-loading"
-            radius="1"
+            ariaLabel="three-dots-loading"
             visible={true}
           />
         )}
