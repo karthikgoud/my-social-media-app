@@ -1,0 +1,35 @@
+.gifModal {
+  /* background-color: var(--bg-dark-1); */
+  background-color: white;
+  position: absolute;
+  bottom: -200px;
+  left: 100px;
+  padding: 1rem;
+  width: 400px;
+  z-index: 4;
+  border-radius: 5px;
+  text-align: end;
+  color: black;
+  display: flex;
+  font-weight: 700;
+}
+
+.gifCont {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.gifModal div {
+  cursor: pointer;
+}
+
+.gify {
+  margin: 0.4rem;
+  padding: 0.5rem;
+}
+
+.gify:hover {
+  outline: solid gray;
+}

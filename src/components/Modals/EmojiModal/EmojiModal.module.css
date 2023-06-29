@@ -1,0 +1,40 @@
+.emojiModal {
+  /* background-color: var(--bg-dark-1); */
+  background-color: white;
+  position: absolute;
+  bottom: -160px;
+  left: 100px;
+  padding: 1rem;
+  width: 350px;
+  z-index: 4;
+  border-radius: 5px;
+  text-align: end;
+  color: black;
+  display: flex;
+  font-weight: 700;
+}
+
+.emojiModal div {
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.emojiCont {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.emoji {
+  padding: 0.3rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.emoji:hover {
+  background-color: rgb(133, 133, 187);
+  border-radius: 50%;
+}
+
+.emoji:active {
+  background-color: rgb(68, 68, 171);
+}
