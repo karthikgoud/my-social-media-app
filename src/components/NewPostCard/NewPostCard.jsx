@@ -9,6 +9,8 @@ import { createPost } from "../../services/postsServices";
 import UserAvatar from "../UserAvatar/UserAvatar";
 import { useAuth } from "../../context/AuthContext";
 import { ToastHandler } from "../Toast/Toast";
+import EmojiModal from "../Modals/EmojiModal/EmojiModal";
+import GifModal from "../Modals/GifModal/GifModal";
 
 const NewPostCard = () => {
   const {
@@ -20,6 +22,8 @@ const NewPostCard = () => {
     postImage: null,
     postVideo: null,
   });
+  const [showEmojiModal, setShowEmojiModal] = useState(false);
+  const [showGifModal, setShowGifModal] = useState(false);
 
   const { currentUser } = useAuth();
 
@@ -88,7 +92,7 @@ const NewPostCard = () => {
             <div className={styles.postIcons}>
               <span className={styles.addImage}>
                 <label htmlFor="file">
-                  <AiOutlinePicture />
+                  <AiOutlinePicture className={styles.icons} />
                 </label>
                 <input
                   id="file"
@@ -98,16 +102,29 @@ const NewPostCard = () => {
                 />
               </span>
               <span>
-                <AiOutlineFileGif />
+                <AiOutlineFileGif
+                  className={styles.icons}
+                  onClick={() => setShowGifModal((prev) => !prev)}
+                />
               </span>
-              <span>
-                <BsEmojiSmile />
+              <span onClick={() => setShowEmojiModal((prev) => !prev)}>
+                <BsEmojiSmile className={styles.icons} />
               </span>
             </div>
             <button onClick={() => postHandler(newPostData)}>Post</button>
           </div>
         </div>
       </div>
+
+      {showEmojiModal && (
+        <EmojiModal
+          setNewPostData={setNewPostData}
+          onClose={setShowEmojiModal}
+        />
+      )}
+      {showGifModal && (
+        <GifModal setNewPostData={setNewPostData} onClose={setShowGifModal} />
+      )}
     </div>
   );
 };
