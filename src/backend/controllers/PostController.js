@@ -309,6 +309,6 @@ export const getLatestPagedPosts = function (schema, request) {
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
   // number of posts per pages logic
-  const paginatedPosts = latestPosts.slice(0, pageNum * 1 + 2);
+  const paginatedPosts = latestPosts.slice(0, pageNum * 2 + 2);
   return new Response(200, {}, { posts: paginatedPosts });
 };

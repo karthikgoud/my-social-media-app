@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import styles from "./Landing.module.css";
-import landing from "../../assets/images/world-3.png";
+import landing from "../../assets/images/world-4.png";
 import bird from "../../assets/images/bird.png";
 
 const Landing = () => {
