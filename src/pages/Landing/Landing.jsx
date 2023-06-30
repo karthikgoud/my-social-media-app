@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import styles from "./Landing.module.css";
-import landing from "../../assets/images/world-4.png";
+import landing from "../../assets/images/world-6.png";
 import bird from "../../assets/images/bird.png";
 
 const Landing = () => {
@@ -9,7 +9,7 @@ const Landing = () => {
     <div className={styles.container}>
       <div className={styles.introCont}>
         <div className={styles.title}>
-          <img src={bird} alt="logo" width={80} />
+          <img className={styles.bird} src={bird} alt="logo" width={100} />
           <span className={styles.textMy}>twipple</span>
         </div>
         <div className={styles.details}>

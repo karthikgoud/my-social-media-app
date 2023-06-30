@@ -7,10 +7,11 @@
   align-items: center;
   gap: 1rem;
   padding: 0 2rem;
+  /* color: white; */
 }
 
 .introCont {
-  height: 70%;
+  height: 80%;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -30,11 +31,11 @@
 .title {
   font-size: 3.5rem;
   font-weight: 900;
-  /* display: flex; */
 }
 
 .textMy {
-  color: #ff0000;
+  color: #027ef1;
+  text-decoration: underline;
 }
 
 .details {
@@ -50,7 +51,8 @@
 }
 
 .greyColor {
-  color: #9a9a9a;
+  color: #023462;
+  /* color: #9a9a9a; */
 }
 
 .textSmall {
@@ -69,10 +71,10 @@
 .button {
   width: 100%;
   padding: 1rem;
-  background-color: #ff3b30;
+  background-color: #027ef1;
   border: none;
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   letter-spacing: 0.1rem;
   font-weight: 600;
   text-align: center;
@@ -82,13 +84,15 @@
 
 .button:hover {
   cursor: pointer;
-  background-color: #cb4335;
+  background-color: #02519a;
 }
 
 .loginLink {
   margin-top: 1rem;
-  color: blue;
+  color: #027ef1;
   text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 .loginLink:hover {
   cursor: pointer;
