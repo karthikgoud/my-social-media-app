@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./NewPostCard.module.css";
 
 import { AiOutlinePicture } from "react-icons/ai";
@@ -11,6 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 import { ToastHandler } from "../Toast/Toast";
 import EmojiModal from "../Modals/EmojiModal/EmojiModal";
 import GifModal from "../Modals/GifModal/GifModal";
+import ClickOutsideCheck from "../Modals/ClickOutsideCheck/ClickOutsideCheck";
 
 const NewPostCard = () => {
   const {
@@ -24,6 +25,8 @@ const NewPostCard = () => {
   });
   const [showEmojiModal, setShowEmojiModal] = useState(false);
   const [showGifModal, setShowGifModal] = useState(false);
+
+  const refEmoji = useRef();
 
   const { currentUser } = useAuth();
 
@@ -74,6 +77,23 @@ const NewPostCard = () => {
       postVideo: null,
     }));
   }
+
+  useEffect(() => {
+    const checkIfClickedOut = (e) => {
+      if (
+        showEmojiModal &&
+        refEmoji.current &&
+        !refEmoji.current.contains(e.target)
+      ) {
+        setShowEmojiModal(false);
+      }
+    };
+    document.addEventListener("click", checkIfClickedOut);
+    return () => {
+      document.removeEventListener("click", checkIfClickedOut);
+    };
+  }, [showEmojiModal]);
+
   return (
     <div className={styles.newpost}>
       <div className={styles.postCont}>
@@ -101,30 +121,38 @@ const NewPostCard = () => {
                   style={{ display: "none" }}
                 />
               </span>
-              <span>
+              <ClickOutsideCheck show={showGifModal} setShow={setShowGifModal}>
                 <AiOutlineFileGif
                   className={styles.icons}
                   onClick={() => setShowGifModal((prev) => !prev)}
                 />
-              </span>
-              <span onClick={() => setShowEmojiModal((prev) => !prev)}>
-                <BsEmojiSmile className={styles.icons} />
-              </span>
+                {showGifModal && (
+                  <GifModal
+                    setNewPostData={setNewPostData}
+                    onClose={setShowGifModal}
+                  />
+                )}
+              </ClickOutsideCheck>
+              <ClickOutsideCheck
+                show={showEmojiModal}
+                setShow={setShowEmojiModal}
+              >
+                <BsEmojiSmile
+                  onClick={() => setShowEmojiModal((prev) => !prev)}
+                  className={styles.icons}
+                />
+                {showEmojiModal && (
+                  <EmojiModal
+                    setNewPostData={setNewPostData}
+                    onClose={setShowEmojiModal}
+                  />
+                )}
+              </ClickOutsideCheck>
             </div>
             <button onClick={() => postHandler(newPostData)}>Post</button>
           </div>
         </div>
       </div>
-
-      {showEmojiModal && (
-        <EmojiModal
-          setNewPostData={setNewPostData}
-          onClose={setShowEmojiModal}
-        />
-      )}
-      {showGifModal && (
-        <GifModal setNewPostData={setNewPostData} onClose={setShowGifModal} />
-      )}
     </div>
   );
 };
