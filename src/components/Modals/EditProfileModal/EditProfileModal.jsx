@@ -77,7 +77,10 @@ const EditProfileModal = ({ setShowProfileModal }) => {
         <div className={styles.selectCont}>
           {avatarUrl.map((avatar) => {
             return (
-              <div onClick={() => handleAvatarClick(avatar.path)}>
+              <div
+                key={avatar.name}
+                onClick={() => handleAvatarClick(avatar.path)}
+              >
                 <img src={avatar.path} alt={avatar.name} width={50} />
               </div>
             );
