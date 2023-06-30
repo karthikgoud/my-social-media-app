@@ -21,8 +21,6 @@ const SearchAside = () => {
     }
   });
 
-  console.log(userFound);
-
   return (
     <div className={styles.searchCont}>
       <ImSearch className={styles.searchIcon} style={{ color: "white" }} />

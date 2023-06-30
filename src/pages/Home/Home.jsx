@@ -3,7 +3,6 @@ import LatestPostHeading from "../../components/LatestPostHeading/LatestPostHead
 import HomeLayout from "../../components/Layout/HomeLayout/HomeLayout";
 import NewPostCard from "../../components/NewPostCard/NewPostCard";
 import PostCard from "../../components/PostCard/PostCard";
-import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
 import styles from "./Home.module.css";
 
