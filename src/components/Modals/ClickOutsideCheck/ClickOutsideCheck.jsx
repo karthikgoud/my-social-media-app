@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
+import styles from "./ClickOutsideCheck.module.css";
+
 const ClickOutsideCheck = ({ children, show, setShow }) => {
   const ref = useRef();
 
@@ -15,7 +17,11 @@ const ClickOutsideCheck = ({ children, show, setShow }) => {
     };
   }, [show]);
 
-  return <div ref={ref}>{children}</div>;
+  return (
+    <div className={styles.container} ref={ref}>
+      {children}
+    </div>
+  );
 };
 
 export default ClickOutsideCheck;
