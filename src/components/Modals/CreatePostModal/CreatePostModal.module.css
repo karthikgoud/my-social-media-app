@@ -44,12 +44,19 @@
   padding-top: 1rem;
   display: flex;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 .postIcons {
   display: flex;
   gap: 1rem;
   font-size: 1.1rem;
+}
+
+.iconsDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .iconsCont button {
@@ -62,4 +69,12 @@
 
 .iconsCont button:hover {
   cursor: pointer;
+}
+
+.icons {
+  cursor: pointer;
+}
+
+.icons:hover {
+  color: red;
 }

@@ -120,7 +120,7 @@ const PostCard = ({ post }) => {
         )}
         {postVideo && (
           <div className={styles.postVideoCont}>
-            <video controls width="400">
+            <video controls width="400" muted>
               <source src={postVideo} type="video/mp4" />
             </video>
           </div>
