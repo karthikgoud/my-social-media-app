@@ -2,8 +2,8 @@
   /* background-color: var(--bg-dark-1); */
   background-color: white;
   position: absolute;
-  bottom: -200px;
-  left: 100px;
+  top: -150px;
+  left: 60px;
   padding: 1rem;
   width: 400px;
   z-index: 4;

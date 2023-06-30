@@ -8,10 +8,10 @@ import { useData } from "../../context/DataContext";
 import { createPost } from "../../services/postsServices";
 import UserAvatar from "../UserAvatar/UserAvatar";
 import { useAuth } from "../../context/AuthContext";
-import { ToastHandler } from "../Toast/Toast";
 import EmojiModal from "../Modals/EmojiModal/EmojiModal";
 import GifModal from "../Modals/GifModal/GifModal";
 import ClickOutsideCheck from "../Modals/ClickOutsideCheck/ClickOutsideCheck";
+import { uploadImage } from "../../utils/uploadImage";
 
 const NewPostCard = () => {
   const {
@@ -38,37 +38,11 @@ const NewPostCard = () => {
 
   // cloudinary upload
 
-  const uploadImage = async (media) => {
-    const data = new FormData();
-    data.append("file", media);
-    data.append("upload_preset", "ovaqn7lw");
-    // data.append("cloud_name", "dgesxov4w");
-    const requestOptions = {
-      method: "POST",
-      body: data,
-    };
-    await fetch(
-      `https://api.cloudinary.com/v1_1/dgesxov4w/${
-        media.type === "image/jpeg" ? "image" : "video"
-      }/upload`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(data);
-        data.resource_type === "video"
-          ? setNewPostData((prev) => ({ ...prev, postVideo: data.url }))
-          : setNewPostData((prev) => ({ ...prev, postImage: data.url }));
-        ToastHandler("success", `${data.resource_type} ready to post !`);
-      })
-      .catch((error) => {
-        console.error(error);
-        ToastHandler("error", "video upload failed");
-      });
+  const handleCloudUpload = (media) => {
+    uploadImage(media, setNewPostData);
   };
 
   function postHandler(post) {
-    console.log(post);
     createPost(post, encodedToken, dataDispatch);
     setNewPostData((prev) => ({
       ...prev,
@@ -117,7 +91,7 @@ const NewPostCard = () => {
                 <input
                   id="file"
                   type="file"
-                  onChange={(e) => uploadImage(e.target.files[0])}
+                  onChange={(e) => handleCloudUpload(e.target.files[0])}
                   style={{ display: "none" }}
                 />
               </span>
