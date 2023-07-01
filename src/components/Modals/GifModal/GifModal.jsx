@@ -12,8 +12,9 @@ const GifModal = ({ setNewPostData, onClose }) => {
   return (
     <div className={styles.gifModal}>
       <div className={styles.gifCont}>
-        {gifsData.map((src) => (
+        {gifsData.map((src, index) => (
           <img
+            key={index}
             onClick={() => handleEmojiSelect(src)}
             className={styles.gify}
             src={src}
