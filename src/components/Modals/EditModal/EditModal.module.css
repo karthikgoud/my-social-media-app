@@ -71,3 +71,22 @@
 .iconsCont button:hover {
   cursor: pointer;
 }
+
+.deleteMedia {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: #d4e6f1;
+  width: max-content;
+  border-radius: 20px;
+  color: black;
+}
+
+.deleteMedia .buttonX {
+  margin-left: 0.5rem;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 50%;
+  background-color: #34495e;
+  color: white;
+  cursor: pointer;
+}
