@@ -40,6 +40,7 @@ const SearchAside = () => {
           {userFound &&
             userFound.map((user) => (
               <NavLink
+                key={user.username}
                 onClick={() => setSearchText("")}
                 to={`/profile/${user.username}`}
                 className={styles.userEach}

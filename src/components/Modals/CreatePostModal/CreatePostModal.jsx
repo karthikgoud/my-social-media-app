@@ -18,7 +18,7 @@ const CreatePostModal = ({ setShowCreateModal }) => {
   } = useData();
 
   const [newPostData, setNewPostData] = useState({
-    text: "",
+    content: "",
     postImage: null,
     postVideo: null,
   });
@@ -32,17 +32,16 @@ const CreatePostModal = ({ setShowCreateModal }) => {
   const encodedToken = localStorage.getItem("token");
 
   const handleCloudUpload = (media) => {
-    console.log(media);
     uploadImage(media, setNewPostData);
   };
 
   function postHandler(post) {
-    console.log(post);
+    // console.log(post);
     createPost(post, encodedToken, dataDispatch);
 
     setNewPostData((prev) => ({
       ...prev,
-      text: "",
+      content: "",
       postImage: null,
       postVideo: null,
     }));
@@ -58,9 +57,9 @@ const CreatePostModal = ({ setShowCreateModal }) => {
             placeholder="write something interesting"
             cols="50"
             rows="6"
-            value={newPostData.text}
+            value={newPostData.content}
             onChange={(e) =>
-              setNewPostData((prev) => ({ ...prev, text: e.target.value }))
+              setNewPostData((prev) => ({ ...prev, content: e.target.value }))
             }
           ></textarea>
           <div className={styles.iconsDiv}>

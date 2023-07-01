@@ -101,11 +101,8 @@ const EditProfileModal = ({ setShowProfileModal }) => {
               )}
             </span>
 
-            <label htmlFor="file">
-              <MdOutlinePhotoCamera
-                size={20}
-                className={styles.avatarEditIcon}
-              />
+            <label htmlFor="file" className={styles.avatarEditIcon}>
+              <MdOutlinePhotoCamera size={20} />
               Upload
             </label>
 
