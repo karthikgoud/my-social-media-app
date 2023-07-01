@@ -150,7 +150,11 @@ export const DataProvider = ({ children }) => {
       const res = await axios.post(
         `/api/posts/edit/${post._id}`,
         {
-          postData: { content: post.content },
+          postData: {
+            content: post.content,
+            postImage: post.postImage,
+            postVideo: post.postVideo,
+          },
         },
         {
           headers: {
@@ -159,7 +163,7 @@ export const DataProvider = ({ children }) => {
         }
       );
 
-      // console.log("update post", res.data.posts);
+      // console.log("update post", res?.data?.posts);
 
       dataDispatch({ type: "SET_POSTS_DATA", payload: res.data.posts });
       dataDispatch({ type: "GET_USER_POST", payload: res.data.posts });

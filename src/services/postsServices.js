@@ -6,7 +6,7 @@ export async function createPost(newPost, encodedToken, dataDispatch) {
       `/api/posts`,
       {
         postData: {
-          content: newPost.text,
+          content: newPost.content,
           postImage: newPost.postImage,
           postVideo: newPost.postVideo,
         },

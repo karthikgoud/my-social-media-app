@@ -19,7 +19,7 @@ const NewPostCard = () => {
     dataDispatch,
   } = useData();
   const [newPostData, setNewPostData] = useState({
-    text: "",
+    content: "",
     postImage: null,
     postVideo: null,
   });
@@ -46,7 +46,7 @@ const NewPostCard = () => {
     createPost(post, encodedToken, dataDispatch);
     setNewPostData((prev) => ({
       ...prev,
-      text: "",
+      content: "",
       postImage: null,
       postVideo: null,
     }));
@@ -77,9 +77,9 @@ const NewPostCard = () => {
             placeholder="Whats happening...?"
             cols="50"
             rows="6"
-            value={newPostData.text}
+            value={newPostData.content}
             onChange={(e) =>
-              setNewPostData((prev) => ({ ...prev, text: e.target.value }))
+              setNewPostData((prev) => ({ ...prev, content: e.target.value }))
             }
           ></textarea>
           <div className={styles.iconsCont}>

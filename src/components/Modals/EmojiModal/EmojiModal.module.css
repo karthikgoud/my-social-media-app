@@ -1,10 +1,9 @@
 .emojiModal {
-  /* background-color: var(--bg-dark-1); */
   background-color: white;
   position: absolute;
   padding: 1rem;
   width: 350px;
-  z-index: 4;
+  z-index: 50;
   border-radius: 5px;
   text-align: end;
   color: black;
