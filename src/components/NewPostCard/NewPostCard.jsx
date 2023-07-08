@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "./NewPostCard.module.css";
 
+import styles from "./NewPostCard.module.css";
 import { AiOutlinePicture } from "react-icons/ai";
 import { AiOutlineFileGif } from "react-icons/ai";
 import { BsEmojiSmile } from "react-icons/bs";
@@ -12,6 +12,7 @@ import EmojiModal from "../Modals/EmojiModal/EmojiModal";
 import GifModal from "../Modals/GifModal/GifModal";
 import ClickOutsideCheck from "../Modals/ClickOutsideCheck/ClickOutsideCheck";
 import { uploadImage } from "../../utils/uploadImage";
+import { ToastHandler } from "../Toast/Toast";
 
 const NewPostCard = () => {
   const {
@@ -22,9 +23,11 @@ const NewPostCard = () => {
     content: "",
     postImage: null,
     postVideo: null,
+    mediaObject: null,
   });
   const [showEmojiModal, setShowEmojiModal] = useState(false);
   const [showGifModal, setShowGifModal] = useState(false);
+  const [upload, setUpload] = useState(false);
 
   const refEmoji = useRef();
 
@@ -39,14 +42,28 @@ const NewPostCard = () => {
   // cloudinary upload
 
   const handleCloudUpload = (media) => {
-    uploadImage(media, setNewPostData);
+    console.log(media);
+    setNewPostData((prev) => ({ ...prev, mediaObject: media }));
+    uploadImage(media, setNewPostData, setUpload);
   };
 
   function postHandler(post) {
     createPost(post, encodedToken, dataDispatch);
+    ToastHandler("success", `Post Created`);
+
     setNewPostData((prev) => ({
       ...prev,
       content: "",
+      postImage: null,
+      postVideo: null,
+      mediaObject: null,
+    }));
+  }
+
+  function handleDeleteUpload() {
+    setNewPostData((prev) => ({
+      ...prev,
+      mediaObject: null,
       postImage: null,
       postVideo: null,
     }));
@@ -82,6 +99,19 @@ const NewPostCard = () => {
               setNewPostData((prev) => ({ ...prev, content: e.target.value }))
             }
           ></textarea>
+          {upload && <span>...Uploading File</span>}
+          {!upload && newPostData?.mediaObject?.type === "image/jpeg" && (
+            <div className={styles.uploadMediaDiv}>
+              {newPostData?.mediaObject?.name}
+              <span onClick={handleDeleteUpload}> X</span>
+            </div>
+          )}
+          {!upload && newPostData?.mediaObject?.type === "video/mp4" && (
+            <div className={styles.uploadMediaDiv}>
+              {newPostData?.mediaObject?.name}
+              <span onClick={handleDeleteUpload}> X</span>
+            </div>
+          )}
           <div className={styles.iconsCont}>
             <div className={styles.postIcons}>
               <span className={styles.addImage}>
@@ -123,6 +153,7 @@ const NewPostCard = () => {
                 )}
               </ClickOutsideCheck>
             </div>
+
             <button onClick={() => postHandler(newPostData)}>Post</button>
           </div>
         </div>

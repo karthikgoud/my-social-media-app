@@ -78,3 +78,18 @@
 .icons:hover {
   color: red;
 }
+
+.uploadMediaDiv {
+  background-color: var(--text-color-dark);
+  padding: 0.4rem 1rem;
+  width: max-content;
+}
+
+.uploadMediaDiv span {
+  cursor: pointer;
+  margin-left: 0.4rem;
+}
+
+.uploadMediaDiv span:hover {
+  color: red;
+}

@@ -10,6 +10,7 @@ import ClickOutsideCheck from "../ClickOutsideCheck/ClickOutsideCheck";
 import GifModal from "../GifModal/GifModal";
 import EmojiModal from "../EmojiModal/EmojiModal";
 import { useAuth } from "../../../context/AuthContext";
+import { ToastHandler } from "../../Toast/Toast";
 
 const CreatePostModal = ({ setShowCreateModal }) => {
   const {
@@ -21,9 +22,11 @@ const CreatePostModal = ({ setShowCreateModal }) => {
     content: "",
     postImage: null,
     postVideo: null,
+    mediaObject: null,
   });
   const [showEmojiModal, setShowEmojiModal] = useState(false);
   const [showGifModal, setShowGifModal] = useState(false);
+  const [upload, setUpload] = useState(false);
   const { currentUser } = useAuth();
 
   const currentAvatarUser = allUsers.find(
@@ -32,21 +35,34 @@ const CreatePostModal = ({ setShowCreateModal }) => {
   const encodedToken = localStorage.getItem("token");
 
   const handleCloudUpload = (media) => {
-    uploadImage(media, setNewPostData);
+    setNewPostData((prev) => ({ ...prev, mediaObject: media }));
+
+    uploadImage(media, setNewPostData, setUpload);
   };
 
   function postHandler(post) {
     // console.log(post);
     createPost(post, encodedToken, dataDispatch);
+    ToastHandler("success", `Post Created`);
 
     setNewPostData((prev) => ({
       ...prev,
       content: "",
       postImage: null,
       postVideo: null,
+      mediaObject: null,
     }));
 
     setShowCreateModal(false);
+  }
+
+  function handleDeleteUpload() {
+    setNewPostData((prev) => ({
+      ...prev,
+      mediaObject: null,
+      postImage: null,
+      postVideo: null,
+    }));
   }
   return (
     <div className={styles.newpost}>
@@ -62,6 +78,19 @@ const CreatePostModal = ({ setShowCreateModal }) => {
               setNewPostData((prev) => ({ ...prev, content: e.target.value }))
             }
           ></textarea>
+          {upload && <span>...Uploading File</span>}
+          {!upload && newPostData?.mediaObject?.type === "image/jpeg" && (
+            <div className={styles.uploadMediaDiv}>
+              {newPostData?.mediaObject?.name}
+              <span onClick={handleDeleteUpload}> X</span>
+            </div>
+          )}
+          {!upload && newPostData?.mediaObject?.type === "video/mp4" && (
+            <div className={styles.uploadMediaDiv}>
+              {newPostData?.mediaObject?.name}
+              <span onClick={handleDeleteUpload}> X</span>
+            </div>
+          )}
           <div className={styles.iconsDiv}>
             <div className={styles.postIcons}>
               <span className={styles.addImage}>
