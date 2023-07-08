@@ -5,6 +5,8 @@
   height: 80vh;
   padding: 1rem 1rem;
   color: var(--color-white);
+  position: sticky;
+  top: 5px;
 }
 
 .iconCont {

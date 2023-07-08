@@ -25,8 +25,10 @@ const HomeLayout = ({ children }) => {
         </aside>
         <main className={styles.main}>{children}</main>
         <aside className={styles.asideR}>
-          <SearchAside />
-          <AsideFollowBox />
+          <div className={styles.asideRCont}>
+            <SearchAside />
+            <AsideFollowBox />
+          </div>
         </aside>
       </div>
 
