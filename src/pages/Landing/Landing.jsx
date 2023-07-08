@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 
 import styles from "./Landing.module.css";
-import landing from "../../assets/images/world-6.png";
-import bird from "../../assets/images/bird.png";
+import { assets } from "../../constants/assets";
 
 const Landing = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +21,12 @@ const Landing = () => {
     <div className={styles.container}>
       <div className={styles.introCont}>
         <div className={styles.title}>
-          <img className={styles.bird} src={bird} alt="logo" width={100} />
+          <img
+            className={styles.bird}
+            src={assets.birdPng}
+            alt="logo"
+            width={100}
+          />
           <span className={styles.textMy}>twipple</span>
         </div>
         <div className={styles.details}>
@@ -55,7 +59,7 @@ const Landing = () => {
         </div>
       </div>
       <div className={styles.imgCont}>
-        <img src={landing} alt="landing-img" />
+        <img src={assets.landingImage} alt="landing-img" />
       </div>
     </div>
   ) : (
