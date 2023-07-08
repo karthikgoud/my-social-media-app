@@ -1,23 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { TailSpin } from "react-loader-spinner";
 
 import styles from "./Landing.module.css";
 import { assets } from "../../constants/assets";
 
 const Landing = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleLoading = () => {
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    window.addEventListener("load", handleLoading);
-    return () => window.removeEventListener("load", handleLoading);
-  }, []);
-
-  return !isLoading ? (
+  return (
     <div className={styles.container}>
       <div className={styles.introCont}>
         <div className={styles.title}>
@@ -61,18 +48,6 @@ const Landing = () => {
       <div className={styles.imgCont}>
         <img src={assets.landingImage} alt="landing-img" />
       </div>
-    </div>
-  ) : (
-    <div className={styles.loader}>
-      <TailSpin
-        height="100"
-        width="100"
-        color="#ff0060"
-        ariaLabel="tail-spin-loading"
-        radius="1"
-        wrapperStyle={{}}
-        visible={true}
-      />
     </div>
   );
 };
