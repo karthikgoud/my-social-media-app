@@ -22,6 +22,7 @@ const Login = () => {
     getLogin(loginForm.username, loginForm.password);
     setIsLoggedIn(true);
     navigate("/home");
+    ToastHandler("success", "Successfully Logged In !!!");
   };
 
   const handleGuestLogin = () => {
@@ -33,6 +34,7 @@ const Login = () => {
     getLogin("karthikgoud", "karthikVeeresh");
     setIsLoggedIn(true);
     navigate("/home");
+    ToastHandler("success", "Successfully Logged In !!!");
   };
 
   return (

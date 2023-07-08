@@ -40,6 +40,7 @@ const Signup = () => {
         setIsSignUp(true);
         setIsLoggedIn(true);
         navigate("/home");
+        ToastHandler("success", "Successfully Signed Up !!!");
       } else {
         ToastHandler("error", "password not matched");
       }
