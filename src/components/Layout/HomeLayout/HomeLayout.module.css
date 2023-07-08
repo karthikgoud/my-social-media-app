@@ -55,3 +55,7 @@
   padding-top: 2.5rem;
   justify-self: end;
 }
+.asideRCont {
+  position: sticky;
+  top: 10px;
+}
