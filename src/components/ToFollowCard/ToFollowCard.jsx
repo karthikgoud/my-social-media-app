@@ -20,14 +20,15 @@ const ToFollowCard = ({ user }) => {
 
   return (
     <div className={styles.userCont} onClick={() => handleUserClick(user)}>
-      <UserAvatar user={user} />
-      <div>
-        <h3>
-          {user.firstName} {user.lastName}
-        </h3>
-        <p>@{user.username}</p>
+      <div className={styles.info}>
+        <UserAvatar user={user} />
+        <div className={styles.nameCont}>
+          <h3>
+            {user.firstName} {user.lastName}
+          </h3>
+          <p>@{user.username}</p>
+        </div>
       </div>
-
       <div className={styles.red} onClick={(e) => handleFollow(e, user)}>
         Follow +
       </div>
