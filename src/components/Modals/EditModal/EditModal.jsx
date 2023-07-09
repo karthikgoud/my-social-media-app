@@ -21,6 +21,8 @@ const EditModal = ({ setShowEditModal, post }) => {
 
   const [showEmojiModal, setShowEmojiModal] = useState(false);
   const [showGifModal, setShowGifModal] = useState(false);
+  const [upload, setUpload] = useState(false);
+
   const encodedToken = localStorage.getItem("token");
 
   function changeHandler(e) {
@@ -29,7 +31,9 @@ const EditModal = ({ setShowEditModal, post }) => {
   }
 
   const handleCloudUpload = (media) => {
-    uploadImage(media, setNewPost);
+    setNewPost((prev) => ({ ...prev, mediaObject: media }));
+
+    uploadImage(media, setNewPost, setUpload);
   };
 
   function updataHandler(post) {

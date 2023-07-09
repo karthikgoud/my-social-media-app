@@ -7,6 +7,11 @@
   background-color: var(--bg-dark-2);
 }
 
+.info {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .userCont:hover {
   background-color: var(--bg-dark-1);
   cursor: pointer;
@@ -19,12 +24,19 @@
   border-radius: 50%;
 }
 
+.nameCont {
+  width: 130px;
+}
+
 .red {
   color: red;
   font-weight: 700;
+  padding: 0.5rem;
 }
 
 .red:hover {
+  background-color: var(--bg-dark-2);
+  border-radius: 10px;
   cursor: pointer;
-  color: rgb(187, 145, 145);
+  color: greenyellow;
 }
