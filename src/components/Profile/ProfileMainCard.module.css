@@ -25,6 +25,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px;
+  outline: 1px solid white;
 }
 
 .profileImage {
