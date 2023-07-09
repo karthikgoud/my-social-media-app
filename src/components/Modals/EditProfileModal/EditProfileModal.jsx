@@ -8,6 +8,7 @@ import { useAuth } from "../../../context/AuthContext";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import AvatarModal from "../AvatarModal/AvatarModal";
 import { avatarUrl } from "../../../constants/avatarUrl";
+import { ToastHandler } from "../../Toast/Toast";
 
 const EditProfileModal = ({ setShowProfileModal }) => {
   const {
@@ -21,6 +22,7 @@ const EditProfileModal = ({ setShowProfileModal }) => {
     bio: userData.bio,
     avatarUrl: userData.avatarUrl,
     website: userData.website,
+    bannerImage: userData.bannerImage,
   });
 
   const currentAvatarUser = allUsers.find(
@@ -43,6 +45,31 @@ const EditProfileModal = ({ setShowProfileModal }) => {
       .then((response) => response.json())
       .then((data) => {
         setProfileUpdate((prev) => ({ ...prev, avatarUrl: data.url }));
+      })
+      .catch((error) => {
+        console.error(error);
+        // toast.error("Image Uploading failed");
+      });
+  };
+
+  const uploadBanner = async (image) => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "ovaqn7lw");
+    // data.append("cloud_name", "dgesxov4w");
+    const requestOptions = {
+      method: "POST",
+      body: data,
+    };
+    await fetch(
+      "https://api.cloudinary.com/v1_1/dgesxov4w/image/upload",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setProfileUpdate((prev) => ({ ...prev, bannerImage: data.url }));
+        ToastHandler("success", "Banner uploaded");
       })
       .catch((error) => {
         console.error(error);
@@ -103,13 +130,24 @@ const EditProfileModal = ({ setShowProfileModal }) => {
 
             <label htmlFor="file" className={styles.avatarEditIcon}>
               <MdOutlinePhotoCamera size={20} />
-              Upload
+              Change Profile Image
             </label>
 
             <input
               id="file"
               type="file"
               onChange={(e) => uploadImage(e.target.files[0])}
+            />
+            {/* --------banner-------- */}
+            <label htmlFor="banner" className={styles.avatarEditIcon}>
+              <MdOutlinePhotoCamera size={20} />
+              Change Banner
+            </label>
+
+            <input
+              id="banner"
+              type="file"
+              onChange={(e) => uploadBanner(e.target.files[0])}
             />
           </div>
         </div>

@@ -103,6 +103,7 @@ export const DataProvider = ({ children }) => {
             bio: profileUpdate.bio,
             website: profileUpdate.website,
             avatarUrl: profileUpdate.avatarUrl,
+            bannerImage: profileUpdate.bannerImage,
           },
         },
         {

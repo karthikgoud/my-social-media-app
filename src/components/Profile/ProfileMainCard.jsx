@@ -3,6 +3,7 @@ import ModalWrapper from "../Modals/ModalWrapper/ModalWrapper";
 import styles from "./ProfileMainCard.module.css";
 import { useNavigate } from "react-router";
 import UserAvatar from "../UserAvatar/UserAvatar";
+import UserAvatarFreeSize from "../UserAvatarFreeSize/UserAvatarFreeSize";
 
 const ProfileMainCard = ({
   children,
@@ -22,6 +23,7 @@ const ProfileMainCard = ({
     avatarUrl,
     following,
     followers,
+    bannerImage,
   } = currentUserProfile;
 
   function handleOpen() {
@@ -45,15 +47,26 @@ const ProfileMainCard = ({
     setOpenModal(false);
     setFollowersOpenModal(false);
   }
-  return (
-    <div>
-      <div className={styles.profileCont}>
-        <UserAvatar user={currentUserProfile} />
 
+  return (
+    <div className={styles.profileBox}>
+      <div
+        className={styles.banner}
+        style={{
+          backgroundImage: `url(${bannerImage})`,
+        }}
+      ></div>
+      <div className={styles.profileCont}>
+        <UserAvatarFreeSize
+          user={currentUserProfile}
+          width={120}
+          height={120}
+        />
         <h2>
           {firstName} {lastName}
         </h2>
         <div className={styles.username}>@{username}</div>
+
         {children}
         <p>{bio}</p>
         <a href={website} className={styles.website} target="_blank">

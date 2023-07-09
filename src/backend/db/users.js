@@ -18,6 +18,8 @@ export const users = [
     website: "https://karthikrv-portfolio.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bannerImage:
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688889804/banners/mountains-g35f0776c2_1280_a0dgit.jpg",
     bookmarks: [],
     following: [
       {
@@ -83,6 +85,8 @@ export const users = [
     website: "https://Subaham.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bannerImage:
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688892551/banners/buildings-g6fb50eecd_1280_lptqfb.jpg",
     bookmarks: [],
     following: [],
     followers: [],
@@ -100,6 +104,8 @@ export const users = [
     website: "https://Rahul.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bannerImage:
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688892267/banners/festival-g515c128e9_1280_nrahon.jpg",
     bookmarks: [],
     following: [],
     followers: [],
@@ -117,6 +123,8 @@ export const users = [
     website: "https://Carl.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bannerImage:
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688890233/banners/mount-fuji-g159464af2_1280_cjsiyl.jpg",
     bookmarks: [],
     following: [],
     followers: [],
@@ -134,6 +142,8 @@ export const users = [
     website: "https://tesla.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bannerImage:
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688890298/banners/man-g3dc024978_1280_q35wfg.jpg",
     bookmarks: [],
     following: [],
     followers: [],
@@ -151,6 +161,8 @@ export const users = [
     website: "https://Lucy.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bannerImage:
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688890874/banners/nature-gd485710e0_1280_kow5su.jpg",
     bookmarks: [],
     following: [],
     followers: [],
