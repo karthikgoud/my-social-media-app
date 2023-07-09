@@ -1,0 +1,15 @@
+.avatarImg {
+  border-radius: 50%;
+  object-fit: cover;
+  border: solid whitesmoke;
+}
+
+.initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background-color: var(--color-active-red);
+}

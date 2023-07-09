@@ -34,6 +34,10 @@ export const signupHandler = function (schema, request) {
       _id,
       createdAt: formatDate(),
       updatedAt: formatDate(),
+      avatarUrl:
+        "https://res.cloudinary.com/dgesxov4w/image/upload/v1687590221/avatar/man-4_cbiirq.png",
+      bannerImage:
+        "https://res.cloudinary.com/dgesxov4w/image/upload/v1688890089/banners/panorama-gf6af923b3_1280_hkfj0y.jpg",
       username,
       password,
       ...rest,
