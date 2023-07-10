@@ -67,7 +67,7 @@ export const posts = [
     postImage:
       "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717651/postImages/akshay-syal-5vDTocCCutE-unsplash_irak9j.jpg",
     postVideo: null,
-    createdAt: "2023-06-26",
+    createdAt: "2023-01-26",
 
     updatedAt: formatDate(),
   },

@@ -27,6 +27,7 @@
     "asideL main asideR";
   width: 90%;
   margin: 0 auto;
+  column-gap: 1rem;
 }
 
 .Modal {
