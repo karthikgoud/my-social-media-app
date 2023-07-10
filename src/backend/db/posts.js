@@ -19,7 +19,7 @@ export const posts = [
     username: "karthikgoud",
     postImage: null,
     postVideo:
-      "https://res.cloudinary.com/dgesxov4w/video/upload/v1687716844/videos/pexels-cottonbro-studio-5803089-640x360-25fps_d5yajb.mp4",
+      "https://res.cloudinary.com/dgesxov4w/video/upload/v1688802417/plahpkrqctzxwwaw68hl.mp4",
     createdAt: "2021-03-21",
 
     updatedAt: formatDate(),
@@ -65,7 +65,7 @@ export const posts = [
     },
     username: "karthikgoud",
     postImage:
-      "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717651/postImages/akshay-syal-5vDTocCCutE-unsplash_irak9j.jpg",
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688895279/qjtxkfpvoocz9dhqgejk.jpg",
     postVideo: null,
     createdAt: "2023-01-26",
 
@@ -82,7 +82,7 @@ export const posts = [
     },
     username: "shubhamsoni",
     postImage:
-      "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717856/postImages/herry-sutanto-uuDGytDGPx0-unsplash_otsith.jpg",
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688796824/vd05iju0nlr861une2kw.jpg",
     postVideo: null,
     createdAt: "2022-06-14",
 
@@ -133,7 +133,7 @@ export const posts = [
     },
     username: "rahulbaxi",
     postImage:
-      "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717648/postImages/ashim-d-silva-KF7pv-8OiyY-unsplash_fsriue.jpg",
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688993312/ashim-d-silva-KF7pv-8OiyY-unsplash_nmoaax.jpg",
     postVideo: null,
     createdAt: "2022-05-14",
 
@@ -150,7 +150,7 @@ export const posts = [
     },
     username: "carlsmith",
     postImage:
-      "https://res.cloudinary.com/dgesxov4w/image/upload/v1687717648/postImages/jannes-jacobs-NfsB3jPVlcM-unsplash_nfx1ed.jpg",
+      "https://res.cloudinary.com/dgesxov4w/image/upload/v1688796051/bu8wgcutxpbwzyutyjxd.jpg",
     postVideo: null,
     createdAt: "2022-03-14",
 
@@ -203,7 +203,7 @@ export const posts = [
     username: "lucypaul",
     postImage: null,
     postVideo:
-      "https://res.cloudinary.com/dgesxov4w/video/upload/v1687714058/videos/mercedes_glk_-_1406_240p_glplrj.mp4",
+      "https://res.cloudinary.com/dgesxov4w/video/upload/v1688457674/tdrtfeducsbcsj7l9jr2.mp4",
     createdAt: "2023-05-04",
     updatedAt: formatDate(),
   },
