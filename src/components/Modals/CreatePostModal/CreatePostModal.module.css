@@ -1,4 +1,5 @@
 .newpost {
+  width: 50%;
   padding: 2rem;
   color: #fff;
   background-color: var(--bg-dark-1);

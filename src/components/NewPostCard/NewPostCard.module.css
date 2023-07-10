@@ -5,6 +5,7 @@
   color: #fff;
   background-color: var(--bg-dark-2);
   position: relative;
+  width: 100%;
 }
 
 .img {
@@ -61,10 +62,13 @@
   padding: 0.5rem 2rem;
   background-color: var(--color-btn-red);
   color: #fff;
+  border-radius: 5px;
 }
 
 .iconsCont button:hover {
   cursor: pointer;
+  background-color: rgb(126, 18, 18);
+  translate: 1px 1px;
 }
 
 .addImage :hover {
@@ -82,7 +86,9 @@
 .uploadMediaDiv {
   background-color: var(--text-color-dark);
   padding: 0.4rem 1rem;
-  width: max-content;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 0.5rem;
 }
 
 .uploadMediaDiv span {

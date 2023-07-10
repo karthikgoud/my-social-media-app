@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 80vh;
-  padding: 1rem 1rem;
+  padding: 0 0 1rem 1rem;
   color: var(--color-white);
   position: sticky;
   top: 5px;
@@ -40,7 +40,7 @@
 
 .bottomCont {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem;
